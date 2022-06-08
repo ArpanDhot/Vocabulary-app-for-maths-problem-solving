@@ -41,7 +41,7 @@ public class Login extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit(); //Inorder to write into the database need to use the subclass editor
 
         //Assigning textView to plain text
-        textInput = findViewById(R.id.input_field);
+        textInput = findViewById(R.id.idInput);
 
         //Assigning button var to button
         submitButton = findViewById(R.id.loginButton);

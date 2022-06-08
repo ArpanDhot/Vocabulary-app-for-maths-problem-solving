@@ -6,33 +6,32 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".levels.easy.intersects.IntersectsOne">
+    tools:context=".levels.easy.intersects.IntersectsThree">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
+        android:id="@+id/intersectsThreeTextView"
+        android:layout_width="193dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Hello my name is Arpan" />
+        android:text="Write your understanding" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/readButton"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/intersectsThreeInputString"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:backgroundTint="#A5C3D7"
-        android:fontFamily="sans-serif-black"
-        android:clickable="true"
-        app:srcCompat="@drawable/playbutton" />
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Write"
+        android:inputType="textPersonName"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/intersectsOneNextButton"
+        android:id="@+id/intersectsThreePhraseSubmitButton"
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:backgroundTint="#A5C3D7"
         android:fontFamily="sans-serif-black"
-        android:text="Next"
+        android:text="Submit"
         app:cornerRadius="20dp" />
-
 </LinearLayout>
