@@ -6,33 +6,22 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Login">
+    tools:context=".levels.easy.intersects.IntersectsOne">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="77dp"
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="LOG IN" />
-
-    <EditText
-        android:id="@+id/input_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="USER ID"
-        android:inputType="textPersonName"
-        tools:ignore="TouchTargetSizeCheck" />
+        android:text="Hello my name is Arpan" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/readButton"
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:backgroundTint="#A5C3D7"
         android:fontFamily="sans-serif-black"
-        android:text="Submit"
+        android:text="Read"
         app:cornerRadius="20dp" />
-
 </LinearLayout>

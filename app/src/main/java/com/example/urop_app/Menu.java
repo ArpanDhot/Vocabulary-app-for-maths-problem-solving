@@ -2,10 +2,20 @@ package com.example.urop_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.widget.Button;
+import com.example.urop_app.levels.easy.intersects.IntersectsOne;
 
 public class Menu extends AppCompatActivity {
+
+    private Button easyLevel;
+    private Button mediumLevel;
+    private Button hardLevel;
+    private Button settings;
+    private Button help;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +32,18 @@ public class Menu extends AppCompatActivity {
 
         //Setting up the activity
         setContentView(R.layout.activity_menu);
+
+        //Assigning button var to button
+        easyLevel = findViewById(R.id.easyLevelButton);
+
+        //Setting up the button to do x when the button is pressed
+        easyLevel.setOnClickListener(e->{
+
+            //Moving to the Menu activity
+            //Inorder to intent from a class in a package you must import the exact class
+            Intent intent = new Intent(getApplicationContext(), IntersectsOne.class);
+            startActivity(intent);
+        });
+
     }
 }
