@@ -6,4 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".Menu">
 
+    <LinearLayout
+        android:id="@+id/container2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/easyLevelButton"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="#A5C3D7"
+            android:fontFamily="sans-serif-black"
+            android:text="Easy Level"
+            app:cornerRadius="20dp" />
+
+        <Button
+            android:id="@+id/mediumLevelButton"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="#A5C3D7"
+            android:fontFamily="sans-serif-black"
+            android:text="Medium Level"
+            app:cornerRadius="20dp" />
+
+        <Button
+            android:id="@+id/hardLevelButton"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="#A5C3D7"
+            android:fontFamily="sans-serif-black"
+            android:text="Hard Level"
+            app:cornerRadius="20dp" />
+
+        <Button
+            android:id="@+id/helpButton"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="#A5C3D7"
+            android:fontFamily="sans-serif-black"
+            android:text="Settings"
+            app:cornerRadius="20dp" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

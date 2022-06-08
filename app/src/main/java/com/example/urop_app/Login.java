@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,6 +23,17 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //This is hiding the hide the OS bar
+        try {
+            this.getSupportActionBar().hide();
+        } catch (NullPointerException e) {
+        }
+
+        //To make the windows full screen
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        //Setting up the activity
         setContentView(R.layout.activity_login);
 
         //Setting up the database
@@ -32,7 +44,7 @@ public class Login extends AppCompatActivity {
         textInput = findViewById(R.id.input_field);
 
         //Assigning button var to button
-        submitButton = findViewById(R.id.login_button);
+        submitButton = findViewById(R.id.loginButton);
 
         //Setting up the button to do x when the button is pressed
         submitButton.setOnClickListener(e -> {
@@ -46,10 +58,6 @@ public class Login extends AppCompatActivity {
             //Moving to the Menu activity
             Intent intent = new Intent(getApplicationContext(), Menu.class);
             startActivity(intent);
-
-
         });
-
-
     }
 }

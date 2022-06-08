@@ -19,8 +19,9 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:layout_width="77dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="LOG IN" />
 
         <EditText
@@ -34,10 +35,14 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <Button
-            android:id="@+id/login_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Submit" />
+            android:id="@+id/loginButton"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="#A5C3D7"
+            android:fontFamily="sans-serif-black"
+            android:text="Submit"
+            app:cornerRadius="20dp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
