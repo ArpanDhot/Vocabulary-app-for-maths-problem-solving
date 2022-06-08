@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
                 // Do something after 5s = 5000ms
                 Intent intent = new Intent(getApplicationContext(),Menu.class);
                 startActivity(intent);
+
+
             }
         }, 5000);
 
