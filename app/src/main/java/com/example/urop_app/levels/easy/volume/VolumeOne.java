@@ -1,4 +1,4 @@
-package com.example.urop_app.levels.easy.intersects;
+package com.example.urop_app.levels.easy.volume;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,17 +9,19 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.urop_app.R;
+import com.example.urop_app.levels.easy.intersects.IntersectsThree;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Locale;
 
-public class IntersectsOne extends AppCompatActivity {
+public class VolumeOne extends AppCompatActivity {
 
     private TextToSpeech textToSpeech;
     private FloatingActionButton readButton;
     private Button nextButton;
 
     private String text = "Hello";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,7 @@ public class IntersectsOne extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //Setting up the activity
-        setContentView(R.layout.activity_intersects_one);
+        setContentView(R.layout.activity_volume_one);
 
         //Assigning button var to button
         readButton = findViewById(R.id.readButton);
@@ -55,7 +57,7 @@ public class IntersectsOne extends AppCompatActivity {
             //TODO When Two is made got to change the intent to two from three
             //Moving to the Menu activity
             //Inorder to intent from a class in a package you must import the exact class
-            Intent intent = new Intent(getApplicationContext(), IntersectsTwo.class);
+            Intent intent = new Intent(getApplicationContext(), IntersectsThree.class);
             startActivity(intent);
         });
 

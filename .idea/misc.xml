@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROPAPP/app/src/main/res/layout/activity_intersects_one.xml" value="0.335" />
-        <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROPAPP/app/src/main/res/layout/activity_intersects_three.xml" value="0.17654508611955422" />
-        <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROPAPP/app/src/main/res/layout/activity_intersects_two.xml" value="0.1697061803444782" />
+        <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROPAPP/app/src/main/res/layout/activity_intersecs_zero.xml" value="0.335" />
+        <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROPAPP/app/src/main/res/layout/activity_intersects_one.xml" value="0.45" />
+        <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROPAPP/app/src/main/res/layout/activity_intersects_three.xml" value="0.5" />
+        <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROPAPP/app/src/main/res/layout/activity_intersects_two.xml" value="0.335" />
         <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROPAPP/app/src/main/res/layout/activity_login.xml" value="0.3591485507246377" />
         <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROPAPP/app/src/main/res/layout/activity_main.xml" value="0.36302083333333335" />
         <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROPAPP/app/src/main/res/layout/activity_menu.xml" value="0.36302083333333335" />
+        <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROPAPP/app/src/main/res/layout/activity_volume_one.xml" value="0.272265625" />
       </map>
     </option>
   </component>

@@ -50,7 +50,7 @@ public class Login extends AppCompatActivity {
         submitButton.setOnClickListener(e -> {
             //Assigning the inputted value to the and storing it.
             //TODO parse the inputted text make sure that the ID is valid
-
+            System.out.println(textInput.getText().toString());
             //Storing the inputted ID
             editor.putString("userId", textInput.getText().toString());
             editor.commit();

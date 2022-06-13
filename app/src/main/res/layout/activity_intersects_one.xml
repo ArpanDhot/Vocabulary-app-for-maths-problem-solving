@@ -13,7 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Hello my name is Arpan" />
+        android:text="Intersec" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Defination" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/readButton"
