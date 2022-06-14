@@ -5,26 +5,25 @@ import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import com.example.urop_app.gameObjects.Characters;
 
 
 public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Callback {
 
 
     private IntersectsGameLoop intersectsGameLoop;
-
     private Context mContext;
+    private Characters characters;
+    private Point point;
 
-    int health =500;
-    private Rect rectangle;
-    private int color;
-    int x=100;
-    int y=100;
+    int health = 500;
 
 
     public IntersectsGameView(Context context) {
@@ -38,11 +37,8 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
         intersectsGameLoop = new IntersectsGameLoop(this, surfaceHolder);
 
 
-
-        //
-        rectangle= new Rect(100, 100, 200, 200);
-        color = Color.rgb(255, 0, 0);
-
+        point = new Point(300, 300);
+        characters = new Characters(new Rect(0, 0, 50, 50), point, mContext);
 
 
         setFocusable(true);
@@ -52,21 +48,14 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
     public void draw(Canvas canvas) {
         super.draw(canvas);
 
-        Paint paint = new Paint();
-        paint.setColor(color);
-        canvas.drawRect(rectangle, paint);
+        characters.draw(canvas);
 
 
     }
 
     public void update() {
-        rectangle.set(x - rectangle.width() / 2, y - rectangle.height()/2, x + rectangle.width() / 2, y + rectangle.height()/2);
 
-    x++;
-    y++;
-    health--;
-    System.out.println(health);
-
+        //TODO change its change the way it intents.
         // Draw Game over if the player is dead
         if (health <= 0) {
 
@@ -75,6 +64,9 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
             mContext.startActivity(intent);
 
         }
+
+
+        //health--;
     }
 
     @Override
@@ -83,16 +75,12 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
         // Handle user input touch event actions
         switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
-            case MotionEvent.ACTION_POINTER_DOWN:
-
+                return true;
             case MotionEvent.ACTION_MOVE:
-
-
-            case MotionEvent.ACTION_UP:
-            case MotionEvent.ACTION_POINTER_UP:
-
+                //Calling the object movement method
+                characters.movement(event);
+                return true;
         }
-
         return super.onTouchEvent(event);
     }
 
@@ -116,7 +104,6 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
     public void surfaceDestroyed(SurfaceHolder holder) {
         Log.d("Game.java", "surfaceDestroyed()");
     }
-
 
 
     public void pause() {
