@@ -19,7 +19,7 @@ public class Characters extends Position implements GameObject {
     private int spriteCount; //It will vary character to character. Therefore, its value will be assigned in the switch.
     private double oldXPos = 0;
     private double oldYPos = 0;
-    private int speed = 6;
+    private int speed = 1;
 
     public Characters(Rect rectangle, Point point, Context context) {
         this.rectangle = rectangle;
@@ -33,22 +33,8 @@ public class Characters extends Position implements GameObject {
 
     @Override
     public void draw(Canvas canvas) {
-//        Bitmap resizedObjectSprite = null;
-//
-//        //drawing the Bitmap on to the canvas
-//        if (directionForSprite == -1) {
-//            resizedObjectSprite = Bitmap.createScaledBitmap(birdSpriteRight[birdSpriteIndex++], 80, 60, true);
-//        } else if (directionForSprite == +1) {
-//            resizedObjectSprite =  Bitmap.createScaledBitmap(birdSpriteLeft[birdSpriteIndex++], 80, 60, true);
-//        }
-//
-//        //Bird sprite count reset
-//        if (birdSpriteIndex == 4){
-//            birdSpriteIndex = 0;
-//        }
 
-
-        myPaint.setColor(Color.rgb(255, 0, 0));
+        myPaint.setColor(Color.rgb(255, 0, 255));
         myPaint.setStrokeWidth(10);
         canvas.drawRect(rectangle, myPaint);
     }
@@ -100,4 +86,11 @@ public class Characters extends Position implements GameObject {
         this.setxVel(0);
     }
 
+    public Rect getRectangle() {
+        return rectangle;
+    }
+
+    public void setRectangle(Rect rectangle) {
+        this.rectangle = rectangle;
+    }
 }
