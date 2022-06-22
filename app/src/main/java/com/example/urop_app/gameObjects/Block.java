@@ -5,7 +5,7 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
 
-public class Block implements GameObject {
+public class Block extends Position implements GameObject {
     private Paint paint;
     private Rect rectangle;
     private Point point;
@@ -16,7 +16,8 @@ public class Block implements GameObject {
     public Block(Rect rectangle, int color, Point point) {
         this.rectangle = rectangle;
         this.color = color;
-        this.point = point;
+        this.setxPos(point.x);
+        this.setyPos(point.y);
 
         paint = new Paint();
 
@@ -35,6 +36,17 @@ public class Block implements GameObject {
     @Override
     public void update() {
 
+    }
+
+    /**
+     * I just had to (getXPos() - rectangle.width() / 2)+velX  if I do it the way I code in java fx
+     */
+    public void update(int velX, int velY) {
+        //Setting up the points of the rectangle shape. This will draw the four points of the rectangle
+        //left, top, right, bottom
+        this.setxPos(this.getxPos() + velX);
+        this.setyPos(this.getyPos() + velY);
+        rectangle.set((this.getxPos() - rectangle.width() / 2) + velX, (this.getyPos() - rectangle.height() / 2) + velY, (this.getxPos() + rectangle.width() / 2) + velX, (this.getyPos() + rectangle.height() / 2) + velY);
     }
 
     public Rect getRectangle() {

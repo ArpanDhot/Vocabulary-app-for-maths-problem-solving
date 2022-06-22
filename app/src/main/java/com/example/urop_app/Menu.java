@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.Button;
-import com.example.urop_app.levels.easy.intersects.IntersectsOne;
+import com.example.urop_app.levels.hard.intersects.IntersectsOne;
 
 public class Menu extends AppCompatActivity {
 

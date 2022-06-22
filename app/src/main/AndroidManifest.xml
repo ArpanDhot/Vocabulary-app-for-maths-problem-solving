@@ -14,16 +14,19 @@
         android:theme="@style/Theme.UROPAPP"
         tools:targetApi="31">
         <activity
-            android:name=".levels.easy.volume.VolumeOne"
+            android:name=".levels.easy.volume.VolumeTwo"
             android:exported="false" />
         <activity
-            android:name=".levels.easy.intersects.IntersectsThree"
+            android:name=".levels.easy.increase.IncreaseTwo"
             android:exported="false" />
         <activity
-            android:name=".levels.easy.intersects.IntersectsTwo"
+            android:name=".levels.hard.intersects.IntersectsThree"
             android:exported="false" />
         <activity
-            android:name=".levels.easy.intersects.IntersectsOne"
+            android:name=".levels.hard.intersects.IntersectsTwo"
+            android:exported="false" />
+        <activity
+            android:name=".levels.hard.intersects.IntersectsOne"
             android:exported="false" />
         <activity
             android:name=".Login"
