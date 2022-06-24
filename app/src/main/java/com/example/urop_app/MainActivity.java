@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
+import com.example.urop_app.levels.easy.axis.AxisTwo;
+import com.example.urop_app.levels.easy.increase.IncreaseTwo;
+import com.example.urop_app.levels.easy.volume.VolumeTwo;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -30,8 +34,12 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+//                // Do something after 5s = 5000ms
+//                Intent intent = new Intent(getApplicationContext(), Login.class);
+//                startActivity(intent);
+
                 // Do something after 5s = 5000ms
-                Intent intent = new Intent(getApplicationContext(), Login.class);
+                Intent intent = new Intent(getApplicationContext(), AxisTwo.class);
                 startActivity(intent);
             }
         }, 50);

@@ -100,15 +100,16 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
     public void draw(Canvas canvas) {
         super.draw(canvas);
 
-//        This method allows to scale the image size
+        //This method allows to scale the image size
         Bitmap resizedBitmap = Bitmap.createScaledBitmap(mainBackground, 2600, 1500, true);
-//        drawing the Bitmap on to the canvas
+        //Drawing the Bitmap on to the canvas
         canvas.drawBitmap(resizedBitmap, 0, 0, null);
 
         for (Block block : blocksPath) {
             block.draw(canvas);
         }
 
+        //Try catch is required if there are a lot of objects to be built
         try{
             for (Block block : blocksDraw) {
                 block.draw(canvas);
