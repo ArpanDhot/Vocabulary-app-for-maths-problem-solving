@@ -29,6 +29,7 @@ public class VolumeGameView extends SurfaceView implements SurfaceHolder.Callbac
 
     //Setting up the background
     private Bitmap mainBackground;
+    private Bitmap barrel;
 
     //Cup one (example) objects
     private Block cupOneBlock;
@@ -68,6 +69,7 @@ public class VolumeGameView extends SurfaceView implements SurfaceHolder.Callbac
         mContext = context;
 
         mainBackground = BitmapFactory.decodeResource(context.getResources(), R.drawable.bg03);
+        barrel = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.barrel), 200, 230, true);
 
         //Setting up the game loop
         volumeGameLoop = new VolumeGameLoop(this, surfaceHolder);
@@ -87,22 +89,22 @@ public class VolumeGameView extends SurfaceView implements SurfaceHolder.Callbac
         waterThreeBlock = new Block(new Rect(0, 0, 350, 275), Color.argb(170, 135, 206, 235), waterThreePoint);
 
         //Creating the first block object to avoid to have any index issues
-        monsterPointOne = new Point(600, 600);
+        monsterPointOne = new Point(370, 1320);
         monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 1));
         for (int i = 0; i < 7; i++) {
             intersectCheck[i] = false;
         }
 
         //Creating objects of the static monster
-        monsterPointTwo = new Point(0,0);
+        monsterPointTwo = new Point(900,1100);
         monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 1));
-        monsterPointTwo.set(0,0);
+        monsterPointTwo.set(950,950);
         monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 1));
-        monsterPointTwo.set(0,0);
+        monsterPointTwo.set(800,1000);
         monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 1));
-        monsterPointTwo.set(0,0);
+        monsterPointTwo.set(960,1150);
         monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 1));
-        monsterPointTwo.set(0,0);
+        monsterPointTwo.set(820,1300);
         monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 1));
 
         setFocusable(true);
@@ -121,7 +123,7 @@ public class VolumeGameView extends SurfaceView implements SurfaceHolder.Callbac
                 if (intersectCheck[i] == false) {
                     //Creating adding new monster
                     // Making the intersectCheck boolean true. Meaning that new object has been added
-                    monsterPointOne.set(600, 600);
+                    monsterPointOne.set(370, 1320);
                     if (monstersOne.size() < 7) {
                         monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 1));
                     }
@@ -157,14 +159,27 @@ public class VolumeGameView extends SurfaceView implements SurfaceHolder.Callbac
         //Drawing the Bitmap on to the canvas
         canvas.drawBitmap(resizedBitmap, 0, 0, null);
 
-        cupOneBlock.draw(canvas);
-        cupTwoBlock.draw(canvas);
-
-        waterOneBlock.draw(canvas);
-
+        //User monster
         for (Characters characters : monstersOne) {
             characters.draw(canvas);
         }
+
+        //Static monster
+        for (Characters characters : monstersTwo) {
+            characters.draw(canvas);
+        }
+
+        //Water container
+        cupOneBlock.draw(canvas);
+        cupTwoBlock.draw(canvas);
+
+        //Water cupOneBlock
+        waterOneBlock.draw(canvas);
+
+
+
+        //Barrel
+        canvas.drawBitmap(barrel, 300, 1200, null);
 
         cupTwoBlock.draw(canvas);
         waterTwoBlock.draw(canvas);
