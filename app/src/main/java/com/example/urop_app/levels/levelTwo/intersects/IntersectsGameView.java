@@ -1,10 +1,12 @@
 package com.example.urop_app.levels.levelTwo.intersects;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.util.Log;
@@ -27,10 +29,16 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
     private Point pointY, pointX, pointMonsterOne, pointMonsterTwo, pointDraw;
     private LinkedList<Block> blocksPath = new LinkedList<>();
     private LinkedList<Block> blocksDraw = new LinkedList<>();
+    private boolean intersectCheck[] = new boolean[40];
     private Characters monsterOne, monsterTwo;
 
     private Bitmap mainBackground;
+    private Bitmap signPost;
 
+    //Text and score
+    private Paint paintText;
+    private int score = 0;
+    private int countTrace = 0;
 
 
     public IntersectsGameView(Context context) {
@@ -42,38 +50,72 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
         surfaceHolder.addCallback(this);
 
         mainBackground = BitmapFactory.decodeResource(context.getResources(), R.drawable.bg01);
+        signPost = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.signpost), 300, 300, true);
 
         intersectsGameLoop = new IntersectsGameLoop(this, surfaceHolder);
 
-        pointDraw = new Point(600,600);
+        pointDraw = new Point(600, 600);
         pointY = new Point(1300, 200);
         pointX = new Point(300, 400);
         pointMonsterOne = new Point(1300, 200);
         pointMonsterTwo = new Point(300, 400);
 
-        monsterOne = new Characters(new Rect(0,0,100,100), pointMonsterOne,context,4, 1);
-        monsterTwo = new Characters(new Rect(0,0,100,100),pointMonsterTwo,context,4, 1);
+        monsterOne = new Characters(new Rect(0, 0, 100, 100), pointMonsterOne, context, 4, 1);
+        monsterTwo = new Characters(new Rect(0, 0, 100, 100), pointMonsterTwo, context, 4, 1);
 
 
         drawBoxes();
 
 
+        for (int i = 0; i < 40; i++) {
+            intersectCheck[i] = false;
+        }
+
+        paintText = new Paint();
+        paintText.setColor(Color.BLACK);
+        paintText.setStyle(Paint.Style.FILL);
+        paintText.setTextSize(80);
 
         setFocusable(true);
     }
 
     //CUSTOM METHODS
 
+    //Method to check the amount line drawn.
+    private void traceCheck() {
+
+        for (int i = 0; i < 40; i++) {
+            for (Block block : blocksDraw) {
+                if (Rect.intersects(blocksPath.get(i).getRectangle(), block.getRectangle())) {
+                    intersectCheck[i] = true;
+                }
+
+            }
+        }
+
+        for (Boolean bool : intersectCheck) {
+            if (bool) {
+                countTrace++;
+            }
+        }
+
+        score = (countTrace/4)*10;
+        countTrace = 0;
+
+
+    }
+
+
     //Monsters movement horizontal and vertical.
-    private void monstersMovement(){
+    private void monstersMovement() {
 
-     if(monsterOne.getyPos()<=1400){
-         monsterOne.update(0,3);
-     }
+        if (monsterOne.getyPos() <= 1300) {
+            monsterOne.update(0, 3);
+        }
 
-     if(monsterTwo.getxPos()<=2250){
-            monsterTwo.update(3,0);
-     }
+        if (monsterTwo.getxPos() <= 2250) {
+            monsterTwo.update(3, 0);
+        }
 
 
     }
@@ -82,14 +124,14 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
     private void drawBoxes() {
 
         //Drawing horizontal box
-        for (int i = 0; i < 25; i++) {
-            blocksPath.add(new Block(new Rect(0, 0, 50, 50), Color.argb(30,255, 0, 0), pointY));
+        for (int i = 0; i < 22; i++) {
+            blocksPath.add(new Block(new Rect(0, 0, 50, 50), Color.argb(30, 255, 0, 0), pointY));
             pointY.set(pointY.x, pointY.y + 50);
         }
 
         //Drawing vertical box
         for (int i = 0; i < 40; i++) {
-            blocksPath.add(new Block(new Rect(0, 0, 50, 50), Color.argb(30,255, 255, 0), pointX));
+            blocksPath.add(new Block(new Rect(0, 0, 50, 50), Color.argb(30, 255, 255, 0), pointX));
             pointX.set(pointX.x + 50, pointX.y);
         }
 
@@ -105,45 +147,55 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
         //Drawing the Bitmap on to the canvas
         canvas.drawBitmap(resizedBitmap, 0, 0, null);
 
+        //Sing post
+        canvas.drawBitmap(signPost, 800, 800, null);
+
+        //Blocks monster path
         for (Block block : blocksPath) {
             block.draw(canvas);
         }
 
+        System.out.println(score);
+        canvas.drawText(score+"%",880, 930,paintText);
+
         //Try catch is required if there are a lot of objects to be built
-        try{
+        try {
             for (Block block : blocksDraw) {
                 block.draw(canvas);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
 
 
-       monsterOne.draw(canvas);
-       monsterTwo.draw(canvas);
 
+        monsterOne.draw(canvas);
+        monsterTwo.draw(canvas);
 
 
     }
 
     public void update() {
 
+        try {
+            traceCheck();
+        } catch (Exception e) {
 
+        }
 
         monstersMovement();
 
-//        //TODO change its change the way it intents.
-//        // Draw Game over if the player is dead
-//        if (health <= 0) {
-//
-//            //Pausing the game loop
-//            Intent intent = new Intent(mContext, IntersectsThree.class);
-//            mContext.startActivity(intent);
-//
-//        }
+
+        // Draw Game over if the player is dead
+        if (score == 100) {
+
+            //Pausing the game loop
+            Intent intent = new Intent(mContext, IntersectsThree.class);
+            mContext.startActivity(intent);
+
+        }
 
 
-        //health--;
     }
 
     @Override
@@ -156,13 +208,10 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
                 //Checking if the monsters has crossed the paths
                 //Checking if the boxes are overlapping
                 //Setting a limit on user draw box
-                pointDraw.set((int)event.getX(),(int)event.getY());
+                pointDraw.set((int) event.getX(), (int) event.getY());
 
 
-                       blocksDraw.add(new Block(new Rect(0, 0, 50, 50), Color.rgb(255, 255, 255), pointDraw));
-
-
-
+                blocksDraw.add(new Block(new Rect(0, 0, 50, 50), Color.rgb(255, 255, 255), pointDraw));
 
 
                 return true;
