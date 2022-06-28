@@ -1,4 +1,4 @@
-package com.example.urop_app.levels.easy.axis;
+package com.example.urop_app.levels.levelOne.axis;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +16,7 @@ import android.view.SurfaceView;
 import com.example.urop_app.R;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
-import com.example.urop_app.levels.hard.intersects.IntersectsTwo;
+import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
 
 import java.util.ArrayList;
 
@@ -146,7 +146,7 @@ public class AxisGameView extends SurfaceView implements SurfaceHolder.Callback 
             System.out.println(e);
         }
 
-        //Printing a of the block objects
+        //Printing a of the monster objects
         for (Characters monster : monstersOne) {
             monster.draw(canvas);
         }

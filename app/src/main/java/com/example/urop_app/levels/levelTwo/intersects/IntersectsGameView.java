@@ -1,4 +1,4 @@
-package com.example.urop_app.levels.hard.intersects;
+package com.example.urop_app.levels.levelTwo.intersects;
 
 import android.content.Context;
 import android.graphics.Bitmap;

@@ -1,24 +1,22 @@
-package com.example.urop_app.levels.easy.volume;
+package com.example.urop_app.levels.levelOne.ratio;
 
 import android.graphics.Canvas;
-import android.util.Log;
-import android.view.SurfaceHolder;
+        import android.util.Log;
+        import android.view.SurfaceHolder;
 
-import com.example.urop_app.levels.easy.increase.IncreaseGameView;
-
-public class VolumeGameLoop extends Thread{
+public class RatioGameLoop extends Thread{
     public static final double MAX_UPS = 30.0;
     private static final double UPS_PERIOD = 1E+3/MAX_UPS;
 
-    private VolumeGameView volumeGameView;
+    private RatioGameView ratioGameView;
     private SurfaceHolder surfaceHolder;
 
     private boolean isRunning = false;
     private double averageUPS;
     private double averageFPS;
 
-    public VolumeGameLoop(VolumeGameView volumeGameView, SurfaceHolder surfaceHolder) {
-        this.volumeGameView = volumeGameView;
+    public RatioGameLoop(RatioGameView ratioGameView, SurfaceHolder surfaceHolder) {
+        this.ratioGameView = ratioGameView;
         this.surfaceHolder = surfaceHolder;
     }
 
@@ -58,10 +56,10 @@ public class VolumeGameLoop extends Thread{
             try {
                 canvas = surfaceHolder.lockCanvas();
                 synchronized (surfaceHolder) {
-                    volumeGameView.update();
+                    ratioGameView.update();
                     updateCount++;
 
-                    volumeGameView.draw(canvas);
+                    ratioGameView.draw(canvas);
                 }
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
@@ -89,7 +87,7 @@ public class VolumeGameLoop extends Thread{
 
             // Skip frames to keep up with target UPS
             while(sleepTime < 0 && updateCount < MAX_UPS-1) {
-                volumeGameView.update();
+                ratioGameView.update();
                 updateCount++;
                 elapsedTime = System.currentTimeMillis() - startTime;
                 sleepTime = (long) (updateCount*UPS_PERIOD - elapsedTime);

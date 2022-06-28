@@ -1,13 +1,13 @@
-package com.example.urop_app.levels.hard.intersects;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.urop_app.levels.levelOne.ratio;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
 
-public class IntersectsTwo extends AppCompatActivity {
-    private IntersectsGameView intersectsGameView;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class RatioTwo extends AppCompatActivity {
+    private RatioGameView ratioGameView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,8 @@ public class IntersectsTwo extends AppCompatActivity {
 
 
         // Set content view to game, so that objects in the Game class can be rendered to the screen
-        intersectsGameView = new IntersectsGameView(this);
-        setContentView(intersectsGameView);
+        ratioGameView = new RatioGameView(this);
+        setContentView(ratioGameView);
 
 
     }
@@ -46,7 +46,7 @@ public class IntersectsTwo extends AppCompatActivity {
     @Override
     protected void onPause() {
         Log.d("MainActivity.java", "onPause()");
-        intersectsGameView.pause();
+        ratioGameView.pause();
         super.onPause();
     }
 

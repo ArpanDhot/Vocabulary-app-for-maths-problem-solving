@@ -1,4 +1,4 @@
-package com.example.urop_app.levels.easy.ratio;
+package com.example.urop_app.levels.levelTwo.reflection;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,17 +7,17 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-public class RatioGameView extends SurfaceView implements SurfaceHolder.Callback {
+public class ReflectionGameView extends SurfaceView implements SurfaceHolder.Callback {
 
 
-    private RatioGameLoop ratioGameLoop;
+    private ReflectionGameLoop reflectionGameLoop;
 
     private Context mContext;
 
 
 
 
-    public RatioGameView(Context context) {
+    public ReflectionGameView(Context context) {
         super(context);
 
         // Get surface holder and add callback
@@ -28,7 +28,7 @@ public class RatioGameView extends SurfaceView implements SurfaceHolder.Callback
 
 
         //Setting up the game loop
-        ratioGameLoop = new RatioGameLoop(this, surfaceHolder);
+        reflectionGameLoop = new ReflectionGameLoop(this, surfaceHolder);
 
 
 
@@ -75,12 +75,12 @@ public class RatioGameView extends SurfaceView implements SurfaceHolder.Callback
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         Log.d("Game.java", "surfaceCreated()");
-        if (ratioGameLoop.getState().equals(Thread.State.TERMINATED)) {
+        if (reflectionGameLoop.getState().equals(Thread.State.TERMINATED)) {
             SurfaceHolder surfaceHolder = getHolder();
             surfaceHolder.addCallback(this);
-            ratioGameLoop = new RatioGameLoop(this, surfaceHolder);
+            reflectionGameLoop = new ReflectionGameLoop(this, surfaceHolder);
         }
-        ratioGameLoop.startLoop();
+        reflectionGameLoop.startLoop();
     }
 
     @Override
@@ -95,7 +95,7 @@ public class RatioGameView extends SurfaceView implements SurfaceHolder.Callback
 
 
     public void pause() {
-        ratioGameLoop.stopLoop();
+        reflectionGameLoop.stopLoop();
 
     }
 }

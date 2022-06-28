@@ -1,4 +1,4 @@
-package com.example.urop_app.levels.easy.volume;
+package com.example.urop_app.levels.levelOne.volume;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +16,7 @@ import android.view.SurfaceView;
 import com.example.urop_app.R;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
-import com.example.urop_app.levels.hard.intersects.IntersectsTwo;
+import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
 
 import java.util.ArrayList;
 
@@ -74,7 +74,7 @@ public class VolumeGameView extends SurfaceView implements SurfaceHolder.Callbac
         cupTwoPoint = new Point(1700, 1100);
         cupTwoBlock = new Block(new Rect(0, 0, 400, 600), Color.argb(200, 220, 220, 220), cupTwoPoint);
 
-        //Setting up the objects for the cups
+        //Setting up the objects for the water
         waterOnePoint = new Point(900, 1100);
         waterOneBlock = new Block(new Rect(0, 0, 350, 550), Color.argb(170, 135, 206, 235), waterOnePoint);
         waterTwoPoint = new Point(1700, 1235);

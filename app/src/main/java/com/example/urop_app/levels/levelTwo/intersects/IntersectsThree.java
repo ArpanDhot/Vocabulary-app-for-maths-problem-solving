@@ -1,4 +1,4 @@
-package com.example.urop_app.levels.hard.intersects;
+package com.example.urop_app.levels.levelTwo.intersects;
 
 import androidx.appcompat.app.AppCompatActivity;
 

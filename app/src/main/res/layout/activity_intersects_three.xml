@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".levels.hard.intersects.IntersectsThree">
+    tools:context=".levels.levelTwo.intersects.IntersectsThree">
 
     <TextView
         android:id="@+id/intersectsThreeTextView"

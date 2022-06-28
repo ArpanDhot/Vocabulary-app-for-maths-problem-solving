@@ -1,22 +1,22 @@
-package com.example.urop_app.levels.hard.intersects;
+package com.example.urop_app.levels.levelTwo.reflection;
 
 import android.graphics.Canvas;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
-public class IntersectsGameLoop extends Thread{
+public class ReflectionGameLoop extends Thread{
     public static final double MAX_UPS = 30.0;
     private static final double UPS_PERIOD = 1E+3/MAX_UPS;
 
-    private IntersectsGameView intersectsGameView;
+    private ReflectionGameView reflectionGameView;
     private SurfaceHolder surfaceHolder;
 
     private boolean isRunning = false;
     private double averageUPS;
     private double averageFPS;
 
-    public IntersectsGameLoop(IntersectsGameView intersectsGameView, SurfaceHolder surfaceHolder) {
-        this.intersectsGameView = intersectsGameView;
+    public ReflectionGameLoop(ReflectionGameView reflectionGameView, SurfaceHolder surfaceHolder) {
+        this.reflectionGameView = reflectionGameView;
         this.surfaceHolder = surfaceHolder;
     }
 
@@ -56,10 +56,10 @@ public class IntersectsGameLoop extends Thread{
             try {
                 canvas = surfaceHolder.lockCanvas();
                 synchronized (surfaceHolder) {
-                    intersectsGameView.update();
+                    reflectionGameView.update();
                     updateCount++;
 
-                    intersectsGameView.draw(canvas);
+                    reflectionGameView.draw(canvas);
                 }
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
@@ -87,7 +87,7 @@ public class IntersectsGameLoop extends Thread{
 
             // Skip frames to keep up with target UPS
             while(sleepTime < 0 && updateCount < MAX_UPS-1) {
-                intersectsGameView.update();
+                reflectionGameView.update();
                 updateCount++;
                 elapsedTime = System.currentTimeMillis() - startTime;
                 sleepTime = (long) (updateCount*UPS_PERIOD - elapsedTime);

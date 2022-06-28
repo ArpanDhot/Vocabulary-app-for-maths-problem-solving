@@ -1,4 +1,4 @@
-package com.example.urop_app.levels.easy.increase;
+package com.example.urop_app.levels.levelOne.increase;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,7 +17,7 @@ import android.view.SurfaceView;
 import com.example.urop_app.R;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
-import com.example.urop_app.levels.hard.intersects.IntersectsTwo;
+import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
 
 import java.util.ArrayList;
 

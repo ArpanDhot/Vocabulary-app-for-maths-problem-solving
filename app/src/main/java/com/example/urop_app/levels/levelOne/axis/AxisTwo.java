@@ -1,4 +1,4 @@
-package com.example.urop_app.levels.easy.volume;
+package com.example.urop_app.levels.levelOne.axis;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -6,10 +6,8 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.urop_app.levels.easy.increase.IncreaseGameView;
-
-public class VolumeTwo extends AppCompatActivity {
-    private VolumeGameView volumeGameView;
+public class AxisTwo extends AppCompatActivity {
+    private AxisGameView axisGameView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +25,8 @@ public class VolumeTwo extends AppCompatActivity {
 
 
         // Set content view to game, so that objects in the Game class can be rendered to the screen
-        volumeGameView = new VolumeGameView(this);
-        setContentView(volumeGameView);
+        axisGameView = new AxisGameView(this);
+        setContentView(axisGameView);
 
 
     }
@@ -48,7 +46,7 @@ public class VolumeTwo extends AppCompatActivity {
     @Override
     protected void onPause() {
         Log.d("MainActivity.java", "onPause()");
-        volumeGameView.pause();
+        axisGameView.pause();
         super.onPause();
     }
 

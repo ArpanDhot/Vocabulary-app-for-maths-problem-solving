@@ -1,22 +1,22 @@
-package com.example.urop_app.levels.easy.ratio;
+package com.example.urop_app.levels.levelOne.axis;
 
 import android.graphics.Canvas;
-        import android.util.Log;
-        import android.view.SurfaceHolder;
+import android.util.Log;
+import android.view.SurfaceHolder;
 
-public class RatioGameLoop extends Thread{
+public class AxisGameLoop extends Thread{
     public static final double MAX_UPS = 30.0;
     private static final double UPS_PERIOD = 1E+3/MAX_UPS;
 
-    private RatioGameView ratioGameView;
+    private AxisGameView axisGameView;
     private SurfaceHolder surfaceHolder;
 
     private boolean isRunning = false;
     private double averageUPS;
     private double averageFPS;
 
-    public RatioGameLoop(RatioGameView ratioGameView, SurfaceHolder surfaceHolder) {
-        this.ratioGameView = ratioGameView;
+    public AxisGameLoop(AxisGameView axisGameView, SurfaceHolder surfaceHolder) {
+        this.axisGameView = axisGameView;
         this.surfaceHolder = surfaceHolder;
     }
 
@@ -56,10 +56,10 @@ public class RatioGameLoop extends Thread{
             try {
                 canvas = surfaceHolder.lockCanvas();
                 synchronized (surfaceHolder) {
-                    ratioGameView.update();
+                    axisGameView.update();
                     updateCount++;
 
-                    ratioGameView.draw(canvas);
+                    axisGameView.draw(canvas);
                 }
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
@@ -87,7 +87,7 @@ public class RatioGameLoop extends Thread{
 
             // Skip frames to keep up with target UPS
             while(sleepTime < 0 && updateCount < MAX_UPS-1) {
-                ratioGameView.update();
+                axisGameView.update();
                 updateCount++;
                 elapsedTime = System.currentTimeMillis() - startTime;
                 sleepTime = (long) (updateCount*UPS_PERIOD - elapsedTime);

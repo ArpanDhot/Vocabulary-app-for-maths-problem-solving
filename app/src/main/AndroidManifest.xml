@@ -14,22 +14,28 @@
         android:theme="@style/Theme.UROPAPP"
         tools:targetApi="31">
         <activity
-            android:name=".levels.easy.axis.AxisTwo"
+            android:name=".levels.levelTwo.reflection.ReflectionTwo"
             android:exported="false" />
         <activity
-            android:name=".levels.easy.volume.VolumeTwo"
+            android:name=".levels.levelOne.ratio.RatioTwo"
             android:exported="false" />
         <activity
-            android:name=".levels.easy.increase.IncreaseTwo"
+            android:name=".levels.levelOne.axis.AxisTwo"
             android:exported="false" />
         <activity
-            android:name=".levels.hard.intersects.IntersectsThree"
+            android:name=".levels.levelOne.volume.VolumeTwo"
             android:exported="false" />
         <activity
-            android:name=".levels.hard.intersects.IntersectsTwo"
+            android:name=".levels.levelOne.increase.IncreaseTwo"
             android:exported="false" />
         <activity
-            android:name=".levels.hard.intersects.IntersectsOne"
+            android:name=".levels.levelTwo.intersects.IntersectsThree"
+            android:exported="false" />
+        <activity
+            android:name=".levels.levelTwo.intersects.IntersectsTwo"
+            android:exported="false" />
+        <activity
+            android:name=".levels.levelTwo.intersects.IntersectsOne"
             android:exported="false" />
         <activity
             android:name=".Login"

@@ -1,22 +1,22 @@
-package com.example.urop_app.levels.easy.axis;
+package com.example.urop_app.levels.levelTwo.intersects;
 
 import android.graphics.Canvas;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
-public class AxisGameLoop extends Thread{
+public class IntersectsGameLoop extends Thread{
     public static final double MAX_UPS = 30.0;
     private static final double UPS_PERIOD = 1E+3/MAX_UPS;
 
-    private AxisGameView axisGameView;
+    private IntersectsGameView intersectsGameView;
     private SurfaceHolder surfaceHolder;
 
     private boolean isRunning = false;
     private double averageUPS;
     private double averageFPS;
 
-    public AxisGameLoop(AxisGameView axisGameView, SurfaceHolder surfaceHolder) {
-        this.axisGameView = axisGameView;
+    public IntersectsGameLoop(IntersectsGameView intersectsGameView, SurfaceHolder surfaceHolder) {
+        this.intersectsGameView = intersectsGameView;
         this.surfaceHolder = surfaceHolder;
     }
 
@@ -56,10 +56,10 @@ public class AxisGameLoop extends Thread{
             try {
                 canvas = surfaceHolder.lockCanvas();
                 synchronized (surfaceHolder) {
-                    axisGameView.update();
+                    intersectsGameView.update();
                     updateCount++;
 
-                    axisGameView.draw(canvas);
+                    intersectsGameView.draw(canvas);
                 }
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
@@ -87,7 +87,7 @@ public class AxisGameLoop extends Thread{
 
             // Skip frames to keep up with target UPS
             while(sleepTime < 0 && updateCount < MAX_UPS-1) {
-                axisGameView.update();
+                intersectsGameView.update();
                 updateCount++;
                 elapsedTime = System.currentTimeMillis() - startTime;
                 sleepTime = (long) (updateCount*UPS_PERIOD - elapsedTime);

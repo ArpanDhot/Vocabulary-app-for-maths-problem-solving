@@ -1,4 +1,4 @@
-package com.example.urop_app.levels.hard.intersects;
+package com.example.urop_app.levels.levelTwo.intersects;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.urop_app.R;
-import com.example.urop_app.levels.easy.volume.VolumeTwo;
+import com.example.urop_app.levels.levelOne.volume.VolumeTwo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Locale;
@@ -56,7 +56,7 @@ public class IntersectsOne extends AppCompatActivity {
             //TODO When Two is made got to change the intent to two from three
             //Moving to the Menu activity
             //Inorder to intent from a class in a package you must import the exact class
-            Intent intent = new Intent(getApplicationContext(), IntersectsTwo.class);
+            Intent intent = new Intent(getApplicationContext(), VolumeTwo.class);
             startActivity(intent);
         });
 

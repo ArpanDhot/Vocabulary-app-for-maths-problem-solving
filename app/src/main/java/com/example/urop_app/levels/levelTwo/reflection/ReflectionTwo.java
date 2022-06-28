@@ -1,4 +1,4 @@
-package com.example.urop_app.levels.easy.axis;
+package com.example.urop_app.levels.levelTwo.reflection;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -6,8 +6,8 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AxisTwo extends AppCompatActivity {
-    private AxisGameView axisGameView;
+public class ReflectionTwo extends AppCompatActivity {
+    private ReflectionGameView reflectionGameView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,8 @@ public class AxisTwo extends AppCompatActivity {
 
 
         // Set content view to game, so that objects in the Game class can be rendered to the screen
-        axisGameView = new AxisGameView(this);
-        setContentView(axisGameView);
+        reflectionGameView = new ReflectionGameView(this);
+        setContentView(reflectionGameView);
 
 
     }
@@ -46,7 +46,7 @@ public class AxisTwo extends AppCompatActivity {
     @Override
     protected void onPause() {
         Log.d("MainActivity.java", "onPause()");
-        axisGameView.pause();
+        reflectionGameView.pause();
         super.onPause();
     }
 

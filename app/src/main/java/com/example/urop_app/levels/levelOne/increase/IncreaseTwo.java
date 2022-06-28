@@ -1,4 +1,4 @@
-package com.example.urop_app.levels.easy.ratio;
+package com.example.urop_app.levels.levelOne.increase;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -6,8 +6,8 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class RatioTwo extends AppCompatActivity {
-    private RatioGameView ratioGameView;
+public class IncreaseTwo extends AppCompatActivity {
+    private IncreaseGameView increaseGameView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,8 @@ public class RatioTwo extends AppCompatActivity {
 
 
         // Set content view to game, so that objects in the Game class can be rendered to the screen
-        ratioGameView = new RatioGameView(this);
-        setContentView(ratioGameView);
+        increaseGameView = new IncreaseGameView(this);
+        setContentView(increaseGameView);
 
 
     }
@@ -46,7 +46,7 @@ public class RatioTwo extends AppCompatActivity {
     @Override
     protected void onPause() {
         Log.d("MainActivity.java", "onPause()");
-        ratioGameView.pause();
+        increaseGameView.pause();
         super.onPause();
     }
 

@@ -1,23 +1,22 @@
-package com.example.urop_app.levels.easy.increase;
+package com.example.urop_app.levels.levelOne.volume;
 
 import android.graphics.Canvas;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
-
-public class IncreaseGameLoop extends Thread{
+public class VolumeGameLoop extends Thread{
     public static final double MAX_UPS = 30.0;
     private static final double UPS_PERIOD = 1E+3/MAX_UPS;
 
-    private IncreaseGameView increaseGameView;
+    private VolumeGameView volumeGameView;
     private SurfaceHolder surfaceHolder;
 
     private boolean isRunning = false;
     private double averageUPS;
     private double averageFPS;
 
-    public IncreaseGameLoop(IncreaseGameView increaseGameView, SurfaceHolder surfaceHolder) {
-        this.increaseGameView = increaseGameView;
+    public VolumeGameLoop(VolumeGameView volumeGameView, SurfaceHolder surfaceHolder) {
+        this.volumeGameView = volumeGameView;
         this.surfaceHolder = surfaceHolder;
     }
 
@@ -57,10 +56,10 @@ public class IncreaseGameLoop extends Thread{
             try {
                 canvas = surfaceHolder.lockCanvas();
                 synchronized (surfaceHolder) {
-                    increaseGameView.update();
+                    volumeGameView.update();
                     updateCount++;
 
-                    increaseGameView.draw(canvas);
+                    volumeGameView.draw(canvas);
                 }
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
@@ -88,7 +87,7 @@ public class IncreaseGameLoop extends Thread{
 
             // Skip frames to keep up with target UPS
             while(sleepTime < 0 && updateCount < MAX_UPS-1) {
-                increaseGameView.update();
+                volumeGameView.update();
                 updateCount++;
                 elapsedTime = System.currentTimeMillis() - startTime;
                 sleepTime = (long) (updateCount*UPS_PERIOD - elapsedTime);
@@ -116,4 +115,3 @@ public class IncreaseGameLoop extends Thread{
         }
     }
 }
-

@@ -1,13 +1,13 @@
-package com.example.urop_app.levels.easy.increase;
+package com.example.urop_app.levels.levelTwo.intersects;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class IncreaseTwo extends AppCompatActivity {
-    private IncreaseGameView increaseGameView;
+public class IntersectsTwo extends AppCompatActivity {
+    private IntersectsGameView intersectsGameView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,8 @@ public class IncreaseTwo extends AppCompatActivity {
 
 
         // Set content view to game, so that objects in the Game class can be rendered to the screen
-        increaseGameView = new IncreaseGameView(this);
-        setContentView(increaseGameView);
+        intersectsGameView = new IntersectsGameView(this);
+        setContentView(intersectsGameView);
 
 
     }
@@ -46,7 +46,7 @@ public class IncreaseTwo extends AppCompatActivity {
     @Override
     protected void onPause() {
         Log.d("MainActivity.java", "onPause()");
-        increaseGameView.pause();
+        intersectsGameView.pause();
         super.onPause();
     }
 
