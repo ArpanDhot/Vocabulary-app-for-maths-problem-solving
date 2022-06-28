@@ -105,12 +105,12 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
 
 
         //Setting up the auto monster
-        monsterPointTwo[0] = new Point(-50, 1350); //TODO remove end pos  0 to 2 x=1300
+        monsterPointTwo[0] = new Point(-50, 1350);
         monsterPointTwo[1] = new Point(-50, 1240);
         monsterPointTwo[2] = new Point(-50, 1130);
-        monsterPointTwo[3] = new Point(-250, 1350);  //TODO remove end pos  3 to 4 x=800
+        monsterPointTwo[3] = new Point(-250, 1350);
         monsterPointTwo[4] = new Point(-250, 1240);
-        monsterPointTwo[5] = new Point(-450, 1350); //TODO remove end pos  5 x=400
+        monsterPointTwo[5] = new Point(-450, 1350);
 
         monstersTwo[0] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[0], getContext(), 2, 1);
         monstersTwo[1] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[1], getContext(), 2, 1);
