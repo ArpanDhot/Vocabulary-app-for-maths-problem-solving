@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.WindowManager;
 
 import com.example.urop_app.levels.levelOne.axis.AxisTwo;
+import com.example.urop_app.levels.levelOne.increase.IncreaseTwo;
 import com.example.urop_app.levels.levelOne.ratio.RatioTwo;
 import com.example.urop_app.levels.levelOne.volume.VolumeTwo;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 //                startActivity(intent);
 
                 // Do something after 5s = 5000ms
-                Intent intent = new Intent(getApplicationContext(), IntersectsTwo.class);
+                Intent intent = new Intent(getApplicationContext(), RatioTwo.class);
                 startActivity(intent);
             }
         }, 0);

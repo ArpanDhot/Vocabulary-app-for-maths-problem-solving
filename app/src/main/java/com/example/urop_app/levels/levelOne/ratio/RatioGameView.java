@@ -107,7 +107,7 @@ public class RatioGameView extends SurfaceView implements SurfaceHolder.Callback
 
 
         //Creating the first block object to avoid to have any index issues
-        monsterPointOne = new Point(1250, 1250);
+        monsterPointOne = new Point(1270, 1270);
         for (int i = 0; i < 6; i++) {
             //This condition allows me to load two different sprites at different index start
             if (i <= 1) {
@@ -122,11 +122,11 @@ public class RatioGameView extends SurfaceView implements SurfaceHolder.Callback
         //Monster static
         monsterPointTwo = new Point(350, 1150);
         monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 7));
-        monsterPointTwo.set(200, 1050);
+        monsterPointTwo.set(180, 1090);
         monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 7));
-        monsterPointTwo.set(220, 1250);
+        monsterPointTwo.set(220, 1280);
         monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 7));
-        monsterPointTwo.set(600, 1250);
+        monsterPointTwo.set(620, 1250);
         monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 12));
 
 
