@@ -31,6 +31,7 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
     private LinkedList<Block> blocksDraw = new LinkedList<>();
     private boolean intersectCheck[] = new boolean[40];
     private Characters monsterOne, monsterTwo;
+    private int spriteRectSize = 50;
 
     private Bitmap mainBackground;
     private Bitmap signPost;
@@ -60,8 +61,8 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
         pointMonsterOne = new Point(1300, 200);
         pointMonsterTwo = new Point(300, 400);
 
-        monsterOne = new Characters(new Rect(0, 0, 100, 100), pointMonsterOne, context, 4, 1);
-        monsterTwo = new Characters(new Rect(0, 0, 100, 100), pointMonsterTwo, context, 4, 1);
+        monsterOne = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), pointMonsterOne, context, 4, 1);
+        monsterTwo = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), pointMonsterTwo, context, 4, 1);
 
 
         drawBoxes();
@@ -168,6 +169,7 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
         }
 
 
+        canvas.drawRect(monsterOne.getRectangle(),paintText);
 
         monsterOne.draw(canvas);
         monsterTwo.draw(canvas);
