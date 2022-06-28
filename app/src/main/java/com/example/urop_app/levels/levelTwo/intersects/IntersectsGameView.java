@@ -100,7 +100,7 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
             }
         }
 
-        score = (countTrace/4)*10;
+        score = (countTrace / 4) * 10;
         countTrace = 0;
 
 
@@ -157,7 +157,7 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
         }
 
         System.out.println(score);
-        canvas.drawText(score+"%",880, 930,paintText);
+        canvas.drawText(score + "%", 880, 930, paintText);
 
         //Try catch is required if there are a lot of objects to be built
         try {
@@ -168,13 +168,8 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
             System.out.println(e);
         }
 
-
-        canvas.drawRect(monsterOne.getRectangle(),paintText);
-
         monsterOne.draw(canvas);
         monsterTwo.draw(canvas);
-
-
     }
 
     public void update() {
