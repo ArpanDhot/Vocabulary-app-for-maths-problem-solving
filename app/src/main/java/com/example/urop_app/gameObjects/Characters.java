@@ -295,7 +295,7 @@ public class Characters extends Position implements GameObject {
         }
 
         spriteIndex=spriteIndex+1;
-        canvas.drawBitmap(resizedBitmap0, this.getxPos() - 15, this.getyPos() - 15, null);
+        canvas.drawBitmap(resizedBitmap0, this.getxPos() - 50, this.getyPos() - 50, null);
 
         //Bird sprite count reset
         if (spriteIndex >= spriteCount) {

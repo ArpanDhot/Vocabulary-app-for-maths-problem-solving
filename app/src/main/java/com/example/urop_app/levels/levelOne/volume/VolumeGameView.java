@@ -54,6 +54,10 @@ public class VolumeGameView extends SurfaceView implements SurfaceHolder.Callbac
     private boolean intersectCheck[] = new boolean[7];
     private int sumIntersect = 0;
 
+    //Monster static
+    private Point monsterPointTwo;
+    private ArrayList<Characters> monstersTwo = new ArrayList<>();
+
     public VolumeGameView(Context context) {
         super(context);
 
@@ -88,6 +92,18 @@ public class VolumeGameView extends SurfaceView implements SurfaceHolder.Callbac
         for (int i = 0; i < 7; i++) {
             intersectCheck[i] = false;
         }
+
+        //Creating objects of the static monster
+        monsterPointTwo = new Point(0,0);
+        monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 1));
+        monsterPointTwo.set(0,0);
+        monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 1));
+        monsterPointTwo.set(0,0);
+        monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 1));
+        monsterPointTwo.set(0,0);
+        monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 1));
+        monsterPointTwo.set(0,0);
+        monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 1));
 
         setFocusable(true);
     }
