@@ -11,6 +11,7 @@ import com.example.urop_app.levels.levelOne.axis.AxisTwo;
 import com.example.urop_app.levels.levelOne.increase.IncreaseTwo;
 import com.example.urop_app.levels.levelOne.ratio.RatioTwo;
 import com.example.urop_app.levels.levelOne.volume.VolumeTwo;
+import com.example.urop_app.levels.levelTwo.estimate.EstimateTwo;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
 import com.example.urop_app.levels.levelTwo.reflection.ReflectionTwo;
 import com.google.android.material.transition.MaterialSharedAxis;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 //                startActivity(intent);
 
                 // Do something after 5s = 5000ms
-                Intent intent = new Intent(getApplicationContext(), ReflectionTwo.class);
+                Intent intent = new Intent(getApplicationContext(), EstimateTwo.class);
                 startActivity(intent);
             }
         }, 0);
