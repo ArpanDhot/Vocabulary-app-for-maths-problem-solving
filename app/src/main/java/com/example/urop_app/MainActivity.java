@@ -14,6 +14,7 @@ import com.example.urop_app.levels.levelOne.volume.VolumeTwo;
 import com.example.urop_app.levels.levelTwo.estimate.EstimateTwo;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
 import com.example.urop_app.levels.levelTwo.reflection.ReflectionTwo;
+import com.example.urop_app.levels.levelTwo.sequence.SequenceTwo;
 import com.google.android.material.transition.MaterialSharedAxis;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,12 +40,9 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-//                // Do something after 5s = 5000ms
-//                Intent intent = new Intent(getApplicationContext(), Login.class);
-//                startActivity(intent);
 
                 // Do something after 5s = 5000ms
-                Intent intent = new Intent(getApplicationContext(), EstimateTwo.class);
+                Intent intent = new Intent(getApplicationContext(), SequenceTwo.class);
                 startActivity(intent);
             }
         }, 0);
