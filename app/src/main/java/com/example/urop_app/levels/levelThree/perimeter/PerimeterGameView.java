@@ -43,8 +43,7 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
     private Point pointDraw;
     private LinkedList<Block> blocksDraw = new LinkedList<>();
 
-    //Text and score
-    private Paint paintText;
+    //Score
     private int score = 0;
     private int countTrace = 0;
 
@@ -100,11 +99,6 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
         pointMonsterOne = new Point(950, 900);
         monsterOne = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), pointMonsterOne, context, 4, 1);
 
-        //TODO not sure is gonna display the text
-        paintText = new Paint();
-        paintText.setColor(Color.BLACK);
-        paintText.setStyle(Paint.Style.FILL);
-        paintText.setTextSize(80);
 
         setFocusable(true);
     }
@@ -155,7 +149,7 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
         //Drawing the Bitmap on to the canvas
         canvas.drawBitmap(resizedBitmap, 0, 0, null);
 
-        if (score!=28){
+        if (score != 28) {
             try {
                 //Place Block
                 for (Block block : placeBlockOne) {
@@ -173,7 +167,7 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
         }
 
 
-        if (score ==28) {
+        if (score == 28) {
             canvas.drawBitmap(crates, 1025, 870, null);
         }
 
@@ -184,7 +178,6 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
     public void update() {
 
         traceCheck();
-
 
 
     }
