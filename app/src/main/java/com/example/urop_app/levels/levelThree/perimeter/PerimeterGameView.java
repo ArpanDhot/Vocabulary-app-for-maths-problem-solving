@@ -62,7 +62,7 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
 
         mContext = context;
 
-        mainBackground = BitmapFactory.decodeResource(context.getResources(), R.drawable.bg01);
+        mainBackground = BitmapFactory.decodeResource(context.getResources(), R.drawable.bg11);
 
         crates = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.crates), 480, 480, true);
 
