@@ -1,4 +1,4 @@
-package com.example.urop_app.levels.levelThree.perimeter;
+package com.example.urop_app.levels.levelThree.symmetrical;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.util.Log;
@@ -21,23 +20,22 @@ import com.example.urop_app.levels.levelTwo.intersects.IntersectsThree;
 
 import java.util.LinkedList;
 
-public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Callback {
-
+public class SymmetricalGameView extends SurfaceView implements SurfaceHolder.Callback {
 
     //Setting up required classes by the this class
-    private PerimeterGameLoop perimeterGameLoop;
+    private SymmetricalGameLoop symmetricalGameLoop;
     private Context mContext;
 
     //Setting up the background
     private Bitmap mainBackground;
 
     //
-    private Bitmap crates;
+    private Bitmap rock;
 
     //Monster place block
     private Point placeBlockPointOne;
-    private Block[] placeBlockOne = new Block[28];
-    private boolean intersectCheck[] = new boolean[28];
+    private Block[] placeBlockOne = new Block[10];
+    private boolean intersectCheck[] = new boolean[10];
 
     //Draw
     private Point pointDraw;
@@ -53,7 +51,7 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
     private int spriteRectSize = 50;
 
 
-    public PerimeterGameView(Context context) {
+    public SymmetricalGameView(Context context) {
         super(context);
 
         // Get surface holder and add callback
@@ -62,42 +60,36 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
 
         mContext = context;
 
-        mainBackground = BitmapFactory.decodeResource(context.getResources(), R.drawable.bg12);
+        mainBackground = BitmapFactory.decodeResource(context.getResources(), R.drawable.bg13);
 
-        crates = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.crates), 480, 480, true);
+        rock = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.rock), 530, 450, true);
+
 
         //Setting up the game loop
-        perimeterGameLoop = new PerimeterGameLoop(this, surfaceHolder);
+        symmetricalGameLoop = new SymmetricalGameLoop(this, surfaceHolder);
 
         //Draw point
-        pointDraw = new Point(600, 600);
+        pointDraw = new Point(1250, 880);
 
-        //Hollow rectangle
+        //First and second  row
         int index = 0;
-        placeBlockPointOne = new Point(1050, 950);
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (i == 0 || i == 7) {
-                    placeBlockOne[index] = new Block(new Rect(0, 0, 60, 60), Color.argb(150, 255, 255, 255), placeBlockPointOne);
-                    index++;
-                } else if ((i >= 1 && i <= 7) && (j == 0 || j == 7)) {
+        placeBlockPointOne = new Point(1260, 880);
+        for (int i = 0; i < 10; i++) {
+            placeBlockOne[index] = new Block(new Rect(0, 0, 50, 50), Color.argb(150, 255, 255, 255), placeBlockPointOne);
 
-                    placeBlockOne[index] = new Block(new Rect(0, 0, 60, 60), Color.argb(150, 255, 255, 255), placeBlockPointOne);
+            index++;
 
-                    index++;
-                }
-                placeBlockPointOne.set(placeBlockPointOne.x + 61, placeBlockPointOne.y);
-            }
+            placeBlockPointOne.set(placeBlockPointOne.x , placeBlockPointOne.y+ 51);
 
-            placeBlockPointOne.set(1050, placeBlockPointOne.y + 61);
         }
 
-        for (int i = 0; i < 28; i++) {
+
+        for (int i = 0; i < 10; i++) {
             intersectCheck[i] = false;
         }
 
         //Monster
-        pointMonsterOne = new Point(950, 900);
+        pointMonsterOne = new Point(1110, 860);
         monsterOne = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), pointMonsterOne, context, 4, 1);
 
 
@@ -109,7 +101,7 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
     private void traceCheck() {
 
         try {
-            for (int i = 0; i < 28; i++) {
+            for (int i = 0; i < 10; i++) {
                 for (Block block : blocksDraw) {
                     if (Rect.intersects(placeBlockOne[i].getRectangle(), block.getRectangle())) {
                         intersectCheck[i] = true;
@@ -129,8 +121,9 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
         score = countTrace;
         countTrace = 0;
 
+        System.out.println(score);
         // Draw Game over if the player is dead
-        if (score == 28) {
+        if (score == 10) {
 
             //Pausing the game loop
             Intent intent = new Intent(mContext, IntersectsThree.class);
@@ -150,7 +143,8 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
         //Drawing the Bitmap on to the canvas
         canvas.drawBitmap(resizedBitmap, 0, 0, null);
 
-        if (score != 28) {
+        canvas.drawBitmap(rock, 1025, 890, null);
+
             try {
                 //Place Block
                 for (Block block : placeBlockOne) {
@@ -165,23 +159,20 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
                 //System.out.println(e);
             }
 
-        }
 
 
-        if (score == 28) {
-            canvas.drawBitmap(crates, 1025, 920, null);
-        }
+
+
 
 
         //Monster
         monsterOne.draw(canvas);
+
     }
 
     public void update() {
 
         traceCheck();
-
-
     }
 
     @Override
@@ -209,12 +200,12 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         Log.d("Game.java", "surfaceCreated()");
-        if (perimeterGameLoop.getState().equals(Thread.State.TERMINATED)) {
+        if (symmetricalGameLoop.getState().equals(Thread.State.TERMINATED)) {
             SurfaceHolder surfaceHolder = getHolder();
             surfaceHolder.addCallback(this);
-            perimeterGameLoop = new PerimeterGameLoop(this, surfaceHolder);
+            symmetricalGameLoop = new SymmetricalGameLoop(this, surfaceHolder);
         }
-        perimeterGameLoop.startLoop();
+        symmetricalGameLoop.startLoop();
     }
 
     @Override
@@ -229,7 +220,7 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
 
 
     public void pause() {
-        perimeterGameLoop.stopLoop();
+        symmetricalGameLoop.stopLoop();
 
     }
 }
