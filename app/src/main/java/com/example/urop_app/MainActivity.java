@@ -13,6 +13,8 @@ import com.example.urop_app.levels.levelOne.ratio.RatioTwo;
 import com.example.urop_app.levels.levelOne.volume.VolumeTwo;
 import com.example.urop_app.levels.levelThree.perimeter.PerimeterTwo;
 import com.example.urop_app.levels.levelThree.symmetrical.SymmetricalTwo;
+import com.example.urop_app.levels.levelThree.translate.TranslateGameView;
+import com.example.urop_app.levels.levelThree.translate.TranslateTwo;
 import com.example.urop_app.levels.levelTwo.estimate.EstimateTwo;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
 import com.example.urop_app.levels.levelTwo.reflection.ReflectionTwo;
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
 
                 // Do something after 5s = 5000ms
-                Intent intent = new Intent(getApplicationContext(), AxisTwo.class);
+                Intent intent = new Intent(getApplicationContext(), TranslateTwo.class);
                 startActivity(intent);
             }
         }, 0);
