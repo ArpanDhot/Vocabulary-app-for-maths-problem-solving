@@ -40,8 +40,6 @@ public class TranslateGameView extends SurfaceView implements SurfaceHolder.Call
     private Point monsterPointOne;
     private ArrayList<Characters> monstersOne = new ArrayList<>();
     private int spriteRectSize = 50;
-    private boolean intersectCheck[] = new boolean[8];
-    private int sumIntersect = 0;
 
 
     public TranslateGameView(Context context) {
@@ -110,11 +108,6 @@ public class TranslateGameView extends SurfaceView implements SurfaceHolder.Call
         monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 0, 7));
         monsterPointOne.set(1108, 1188);
         monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 7));
-
-
-        for (int i = 0; i < 8; i++) {
-            intersectCheck[i] = false;
-        }
 
         setFocusable(true);
     }

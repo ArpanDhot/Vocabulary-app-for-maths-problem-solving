@@ -14,6 +14,39 @@
         android:theme="@style/Theme.UROPAPP"
         tools:targetApi="31">
         <activity
+            android:name=".SequenceOne"
+            android:exported="false" />
+        <activity
+            android:name=".ReflectionOne"
+            android:exported="false" />
+        <activity
+            android:name=".EstimateOne"
+            android:exported="false" />
+        <activity
+            android:name=".TranslateOne"
+            android:exported="false" />
+        <activity
+            android:name=".SymmetricalOne"
+            android:exported="false" />
+        <activity
+            android:name=".PerpendicularOne"
+            android:exported="false" />
+        <activity
+            android:name=".PerimeterOne"
+            android:exported="false" />
+        <activity
+            android:name=".VolumeOne"
+            android:exported="false" />
+        <activity
+            android:name=".RatioOne"
+            android:exported="false" />
+        <activity
+            android:name=".IncreaseOne"
+            android:exported="false" />
+        <activity
+            android:name=".AxisOne"
+            android:exported="false" />
+        <activity
             android:name=".levels.levelThree.perpendicular.PerpendicularTwo"
             android:exported="false" />
         <activity
