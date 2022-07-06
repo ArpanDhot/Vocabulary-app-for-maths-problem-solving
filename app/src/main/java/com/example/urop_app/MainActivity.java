@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
 
                 // Do something after 5s = 5000ms
-                Intent intent = new Intent(getApplicationContext(), SymmetricalTwo.class);
+                Intent intent = new Intent(getApplicationContext(), AxisTwo.class);
                 startActivity(intent);
             }
         }, 0);

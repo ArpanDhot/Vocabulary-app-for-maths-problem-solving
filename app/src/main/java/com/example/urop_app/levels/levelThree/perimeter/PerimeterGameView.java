@@ -172,6 +172,8 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
             canvas.drawBitmap(crates, 1025, 920, null);
         }
 
+        canvas.drawBitmap(crates, 1025, 920, null);
+
 
         //Monster
         monsterOne.draw(canvas);
