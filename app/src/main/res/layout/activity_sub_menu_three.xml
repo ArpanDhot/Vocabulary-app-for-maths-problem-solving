@@ -20,12 +20,12 @@
 
     <Button
         android:id="@+id/levelTwo"
-        android:layout_width="184dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:backgroundTint="#A5C3D7"
         android:fontFamily="sans-serif-black"
-        android:text="Start Level Two"
+        android:text="Restart Level One"
         app:cornerRadius="20dp" />
 
     <Button

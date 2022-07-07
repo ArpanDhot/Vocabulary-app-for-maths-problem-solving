@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.example.urop_app.Menu;
 import com.example.urop_app.R;
+import com.example.urop_app.levels.levelOne.increase.IncreaseOne;
 import com.example.urop_app.levels.levelTwo.estimate.EstimateTwo;
 import com.example.urop_app.levels.levelTwo.reflection.ReflectionOne;
 
@@ -44,7 +45,7 @@ public class SubMenuThree extends AppCompatActivity {
 
             //Moving to the Menu activity
             //Inorder to intent from a class in a package you must import the exact class
-            Intent intent = new Intent(getApplicationContext(), ReflectionOne.class);
+            Intent intent = new Intent(getApplicationContext(), IncreaseOne.class);
             startActivity(intent);
         });
 

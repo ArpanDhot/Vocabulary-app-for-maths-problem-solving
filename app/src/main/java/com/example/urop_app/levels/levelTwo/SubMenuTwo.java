@@ -45,7 +45,7 @@ public class SubMenuTwo extends AppCompatActivity {
 
             //Moving to the Menu activity
             //Inorder to intent from a class in a package you must import the exact class
-            Intent intent = new Intent(getApplicationContext(), ReflectionOne.class);
+            Intent intent = new Intent(getApplicationContext(), TranslateOne.class);
             startActivity(intent);
         });
 
