@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.view.SurfaceView;
@@ -18,8 +17,6 @@ import android.view.SurfaceHolder;
 import com.example.urop_app.R;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
-import com.example.urop_app.levels.levelTwo.intersects.IntersectsGameLoop;
-import com.example.urop_app.levels.levelTwo.intersects.IntersectsThree;
 
 import java.util.LinkedList;
 

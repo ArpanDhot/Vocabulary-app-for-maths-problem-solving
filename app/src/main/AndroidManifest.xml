@@ -80,16 +80,10 @@
             android:name=".levels.levelOne.increase.IncreaseTwo"
             android:exported="false" />
         <activity
-            android:name=".levels.levelTwo.intersects.IntersectsThree"
-            android:exported="false" />
-        <activity
             android:name=".levels.levelTwo.intersects.IntersectsTwo"
             android:exported="false" />
         <activity
             android:name=".levels.levelTwo.intersects.IntersectsOne"
-            android:exported="false" />
-        <activity
-            android:name=".Login"
             android:exported="false" />
         <activity
             android:name=".Menu"
