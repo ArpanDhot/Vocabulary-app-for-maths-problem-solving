@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".levels.levelTwo.SubMenuTwo">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        android:text="Level Two Completed"/>
+
+
+    <Button
+        android:id="@+id/levelTwo"
+        android:layout_width="184dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:backgroundTint="#A5C3D7"
+        android:fontFamily="sans-serif-black"
+        android:text="Start Level Two"
+        app:cornerRadius="20dp" />
+
+    <Button
+        android:id="@+id/Menu"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:backgroundTint="#A5C3D7"
+        android:fontFamily="sans-serif-black"
+        android:text="Menu"
+        app:cornerRadius="20dp" />
+
+</LinearLayout>

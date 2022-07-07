@@ -1,4 +1,4 @@
-package com.example.urop_app;
+package com.example.urop_app.levels.levelTwo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,17 +7,16 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import com.example.urop_app.levels.levelOne.increase.IncreaseOne;
+import com.example.urop_app.Menu;
+import com.example.urop_app.R;
 import com.example.urop_app.levels.levelThree.translate.TranslateOne;
+import com.example.urop_app.levels.levelTwo.estimate.EstimateTwo;
 import com.example.urop_app.levels.levelTwo.reflection.ReflectionOne;
 
-public class Menu extends AppCompatActivity {
+public class SubMenuTwo extends AppCompatActivity {
 
-    private Button levelOne;
-    private Button levelTwo;
-    private Button levelThree;
-    private Button settings;
-    private Button help;
+    private Button nextLevel;
+    private Button menu;
 
 
     @Override
@@ -34,27 +33,15 @@ public class Menu extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //Setting up the activity
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_sub_menu_two);
 
-        //LEVEL ONE
+
+
         //Assigning button var to button
-        levelOne = findViewById(R.id.easyLevelButton);
+        nextLevel = findViewById(R.id.easyLevelButton);
 
         //Setting up the button to do x when the button is pressed
-        levelOne.setOnClickListener(e->{
-
-            //Moving to the Menu activity
-            //Inorder to intent from a class in a package you must import the exact class
-            Intent intent = new Intent(getApplicationContext(), IncreaseOne.class);
-            startActivity(intent);
-        });
-
-        //LEVEL TWO
-        //Assigning button var to button
-        levelTwo = findViewById(R.id.mediumLevelButton);
-
-        //Setting up the button to do x when the button is pressed
-        levelTwo.setOnClickListener(e->{
+        nextLevel.setOnClickListener(e->{
 
             //Moving to the Menu activity
             //Inorder to intent from a class in a package you must import the exact class
@@ -62,19 +49,16 @@ public class Menu extends AppCompatActivity {
             startActivity(intent);
         });
 
-        //LEVEL THREE
         //Assigning button var to button
-        levelThree = findViewById(R.id.hardLevelButton);
+        menu = findViewById(R.id.easyLevelButton);
 
         //Setting up the button to do x when the button is pressed
-        levelThree.setOnClickListener(e->{
+        menu.setOnClickListener(e->{
 
             //Moving to the Menu activity
             //Inorder to intent from a class in a package you must import the exact class
-            Intent intent = new Intent(getApplicationContext(), TranslateOne.class);
+            Intent intent = new Intent(getApplicationContext(), Menu.class);
             startActivity(intent);
         });
-
-
     }
 }

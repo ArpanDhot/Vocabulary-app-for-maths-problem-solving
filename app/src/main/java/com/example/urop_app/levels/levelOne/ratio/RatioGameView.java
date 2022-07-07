@@ -17,6 +17,7 @@ import android.view.SurfaceView;
 import com.example.urop_app.R;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.levels.levelOne.axis.AxisOne;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
 
 import java.util.ArrayList;
@@ -177,7 +178,7 @@ public class RatioGameView extends SurfaceView implements SurfaceHolder.Callback
         }
 
         if (scoreFirst == 2 && scoreSecond == 4) {
-            Intent intent = new Intent(mContext, IntersectsTwo.class);
+            Intent intent = new Intent(mContext, AxisOne.class);
             mContext.startActivity(intent);
         }
 

@@ -17,6 +17,9 @@ import android.view.SurfaceHolder;
 import com.example.urop_app.R;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.levels.levelThree.SubMenuThree;
+import com.example.urop_app.levels.levelTwo.SubMenuTwo;
+import com.example.urop_app.levels.levelTwo.intersects.IntersectsOne;
 
 import java.util.LinkedList;
 
@@ -197,7 +200,7 @@ public class PerpendicularGameView extends SurfaceView implements SurfaceHolder.
         if (score == 38) {
 
             //Pausing the game loop
-            Intent intent = new Intent(mContext, IntersectsThree.class);
+            Intent intent = new Intent(mContext, SubMenuThree.class);
             mContext.startActivity(intent);
 
         }

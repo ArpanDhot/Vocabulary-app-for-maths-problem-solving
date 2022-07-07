@@ -16,6 +16,8 @@ import android.view.SurfaceView;
 import com.example.urop_app.R;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.levels.levelThree.perpendicular.PerpendicularOne;
+import com.example.urop_app.levels.levelTwo.intersects.IntersectsOne;
 
 import java.util.LinkedList;
 
@@ -125,7 +127,7 @@ public class SymmetricalGameView extends SurfaceView implements SurfaceHolder.Ca
         if (score == 10) {
 
             //Pausing the game loop
-            Intent intent = new Intent(mContext, IntersectsThree.class);
+            Intent intent = new Intent(mContext, PerpendicularOne.class);
             mContext.startActivity(intent);
 
         }

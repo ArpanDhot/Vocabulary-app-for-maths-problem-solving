@@ -53,10 +53,10 @@ public class IntersectsOne extends AppCompatActivity {
             textToSpeech.stop();
             textToSpeech.shutdown();
 
-            //TODO When Two is made got to change the intent to two from three
+
             //Moving to the Menu activity
             //Inorder to intent from a class in a package you must import the exact class
-            Intent intent = new Intent(getApplicationContext(), VolumeTwo.class);
+            Intent intent = new Intent(getApplicationContext(), IntersectsTwo.class);
             startActivity(intent);
         });
 

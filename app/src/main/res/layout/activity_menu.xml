@@ -15,7 +15,7 @@
         android:layout_margin="10dp"
         android:backgroundTint="#A5C3D7"
         android:fontFamily="sans-serif-black"
-        android:text="Easy Level"
+        android:text="Level One"
         app:cornerRadius="20dp" />
 
     <Button
@@ -25,7 +25,7 @@
         android:layout_margin="10dp"
         android:backgroundTint="#A5C3D7"
         android:fontFamily="sans-serif-black"
-        android:text="Medium Level"
+        android:text="Level Two"
         app:cornerRadius="20dp" />
 
     <Button
@@ -35,7 +35,7 @@
         android:layout_margin="10dp"
         android:backgroundTint="#A5C3D7"
         android:fontFamily="sans-serif-black"
-        android:text="Hard Level"
+        android:text="Level Three"
         app:cornerRadius="20dp" />
 
     <Button

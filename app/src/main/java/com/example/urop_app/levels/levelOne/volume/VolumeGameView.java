@@ -16,6 +16,8 @@ import android.view.SurfaceView;
 import com.example.urop_app.R;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.levels.levelOne.ratio.RatioOne;
+import com.example.urop_app.levels.levelOne.ratio.RatioTwo;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
 
 import java.util.ArrayList;
@@ -143,7 +145,7 @@ public class VolumeGameView extends SurfaceView implements SurfaceHolder.Callbac
         }
 
         if (sumIntersect == 6) {
-            Intent intent = new Intent(mContext, IntersectsTwo.class);
+            Intent intent = new Intent(mContext, RatioOne.class);
             mContext.startActivity(intent);
         }
     }

@@ -17,6 +17,8 @@ import android.view.SurfaceView;
 import com.example.urop_app.R;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.levels.levelTwo.sequence.SequenceOne;
+import com.example.urop_app.levels.levelTwo.sequence.SequenceTwo;
 
 import java.util.LinkedList;
 
@@ -187,7 +189,7 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
         if (score == 100) {
 
             //Pausing the game loop
-            Intent intent = new Intent(mContext, IntersectsThree.class);
+            Intent intent = new Intent(mContext, SequenceOne.class);
             mContext.startActivity(intent);
 
         }

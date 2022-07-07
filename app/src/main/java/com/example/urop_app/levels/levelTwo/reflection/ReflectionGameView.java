@@ -18,6 +18,7 @@ import com.example.urop_app.R;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
 import com.example.urop_app.levels.levelOne.axis.AxisGameLoop;
+import com.example.urop_app.levels.levelTwo.intersects.IntersectsOne;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
 
 public class ReflectionGameView extends SurfaceView implements SurfaceHolder.Callback {
@@ -106,7 +107,7 @@ public class ReflectionGameView extends SurfaceView implements SurfaceHolder.Cal
         //2) I am checking if the click count is equal to 2 then trigger and reset the count
         //To place the block
         if (buttonPlaceItemClickCount == 2) {
-            Intent intent = new Intent(mContext, IntersectsTwo.class);
+            Intent intent = new Intent(mContext, IntersectsOne.class);
             mContext.startActivity(intent);
             //Reset the count of click so the cycle continues
             buttonPlaceItemClickCount = 0;

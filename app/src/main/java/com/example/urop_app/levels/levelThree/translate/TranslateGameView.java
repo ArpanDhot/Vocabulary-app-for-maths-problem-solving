@@ -17,6 +17,7 @@ import com.example.urop_app.R;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
 import com.example.urop_app.levels.levelOne.axis.AxisGameLoop;
+import com.example.urop_app.levels.levelThree.perimeter.PerimeterOne;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
 
 import java.util.ArrayList;
@@ -119,7 +120,7 @@ public class TranslateGameView extends SurfaceView implements SurfaceHolder.Call
 
         if (Rect.intersects(placeBlockTwo[12].getRectangle(), monstersOne.get(monstersOne.size() - 1).getRectangle())) {
 
-            Intent intent = new Intent(mContext, IntersectsTwo.class);
+            Intent intent = new Intent(mContext, PerimeterOne.class);
             mContext.startActivity(intent);
 
         }

@@ -16,6 +16,8 @@ import android.view.SurfaceView;
 import com.example.urop_app.R;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.levels.levelThree.symmetrical.SymmetricalOne;
+import com.example.urop_app.levels.levelTwo.intersects.IntersectsOne;
 
 import java.util.LinkedList;
 
@@ -31,6 +33,8 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
 
     //
     private Bitmap crates;
+
+    private Bitmap star;
 
     //Monster place block
     private Point placeBlockPointOne;
@@ -63,6 +67,8 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
         mainBackground = BitmapFactory.decodeResource(context.getResources(), R.drawable.bg12);
 
         crates = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.crates), 480, 480, true);
+
+        star = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.star), 200, 200, true);
 
         //Setting up the game loop
         perimeterGameLoop = new PerimeterGameLoop(this, surfaceHolder);
@@ -131,7 +137,7 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
         if (score == 28) {
 
             //Pausing the game loop
-            Intent intent = new Intent(mContext, IntersectsThree.class);
+            Intent intent = new Intent(mContext, SymmetricalOne.class);
             mContext.startActivity(intent);
 
         }
@@ -165,12 +171,12 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
 
         }
 
+        canvas.drawBitmap(star, 1160, 1050, null);
 
         if (score == 28) {
             canvas.drawBitmap(crates, 1025, 920, null);
         }
 
-        canvas.drawBitmap(crates, 1025, 920, null);
 
 
         //Monster

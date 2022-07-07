@@ -16,6 +16,7 @@ import android.view.SurfaceView;
 import com.example.urop_app.R;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.levels.levelOne.SubMenuOne;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
 
 import java.util.ArrayList;
@@ -116,7 +117,7 @@ public class AxisGameView extends SurfaceView implements SurfaceHolder.Callback 
             }
         }
         if (sumIntersect == 8) {
-            Intent intent = new Intent(mContext, IntersectsTwo.class);
+            Intent intent = new Intent(mContext, SubMenuOne.class);
             mContext.startActivity(intent);
         }
 

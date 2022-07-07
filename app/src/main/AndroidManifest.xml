@@ -14,37 +14,46 @@
         android:theme="@style/Theme.UROPAPP"
         tools:targetApi="31">
         <activity
-            android:name=".SequenceOne"
+            android:name=".levels.levelTwo.SubMenuTwo"
             android:exported="false" />
         <activity
-            android:name=".ReflectionOne"
+            android:name=".levels.levelThree.SubMenuThree"
             android:exported="false" />
         <activity
-            android:name=".EstimateOne"
+            android:name=".levels.levelOne.SubMenuOne"
             android:exported="false" />
         <activity
-            android:name=".TranslateOne"
+            android:name=".levels.levelTwo.sequence.SequenceOne"
             android:exported="false" />
         <activity
-            android:name=".SymmetricalOne"
+            android:name=".levels.levelTwo.reflection.ReflectionOne"
             android:exported="false" />
         <activity
-            android:name=".PerpendicularOne"
+            android:name=".levels.levelTwo.estimate.EstimateOne"
             android:exported="false" />
         <activity
-            android:name=".PerimeterOne"
+            android:name=".levels.levelThree.translate.TranslateOne"
             android:exported="false" />
         <activity
-            android:name=".VolumeOne"
+            android:name=".levels.levelThree.symmetrical.SymmetricalOne"
             android:exported="false" />
         <activity
-            android:name=".RatioOne"
+            android:name=".levels.levelThree.perpendicular.PerpendicularOne"
             android:exported="false" />
         <activity
-            android:name=".IncreaseOne"
+            android:name=".levels.levelThree.perimeter.PerimeterOne"
             android:exported="false" />
         <activity
-            android:name=".AxisOne"
+            android:name=".levels.levelOne.volume.VolumeOne"
+            android:exported="false" />
+        <activity
+            android:name=".levels.levelOne.ratio.RatioOne"
+            android:exported="false" />
+        <activity
+            android:name=".levels.levelOne.increase.IncreaseOne"
+            android:exported="false" />
+        <activity
+            android:name=".levels.levelOne.axis.AxisOne"
             android:exported="false" />
         <activity
             android:name=".levels.levelThree.perpendicular.PerpendicularTwo"
