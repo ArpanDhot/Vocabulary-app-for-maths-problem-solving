@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.urop_app.R;
+import com.example.urop_app.gameObjects.Sound;
 import com.example.urop_app.levels.levelOne.volume.VolumeTwo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -84,8 +85,7 @@ public class IncreaseOne extends AppCompatActivity {
         //Setting up the button to do x when the button is pressed
         readButton.setOnClickListener(e -> {
 
-
-            textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+           textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
         });
 
     }
