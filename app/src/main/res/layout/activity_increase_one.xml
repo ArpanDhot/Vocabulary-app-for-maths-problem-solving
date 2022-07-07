@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".levels.levelOne.increase.IncreaseOne">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:gravity="center"
+android:orientation="vertical"
+tools:context=".levels.levelOne.increase.IncreaseOne">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<TextView
+    android:id="@+id/textView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:textSize="32dp"
+    android:textStyle="bold"
+    android:text="Increase"/>
+
+<TextView
+    android:id="@+id/textView2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:textSize="20dp"
+    android:text="To increase means to become or make something bigger in size or number." />
+
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/readButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:backgroundTint="#A5C3D7"
+    android:fontFamily="sans-serif-black"
+    android:clickable="true"
+    app:srcCompat="@drawable/playbutton" />
+
+<Button
+    android:id="@+id/intersectsOneNextButton"
+    android:layout_width="170dp"
+    android:layout_height="50dp"
+    android:layout_margin="10dp"
+    android:backgroundTint="#A5C3D7"
+    android:fontFamily="sans-serif-black"
+    android:text="Next"
+    app:cornerRadius="20dp" />
+
+</LinearLayout>

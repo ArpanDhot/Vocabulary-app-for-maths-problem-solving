@@ -13,14 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Intersec" />
+        android:textSize="32dp"
+        android:textStyle="bold"
+        android:text="Intersects"/>
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Defination" />
+        android:textSize="20dp"
+        android:text="When two lines intersect, it means that they meet and cross at a point." />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/readButton"
