@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="#DAE4D3"
     tools:context=".Menu">
 
     <Button
@@ -13,7 +14,7 @@
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
-        android:backgroundTint="#A5C3D7"
+        android:backgroundTint="#839F83"
         android:fontFamily="sans-serif-black"
         android:text="Level One"
         app:cornerRadius="20dp" />
@@ -23,7 +24,7 @@
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
-        android:backgroundTint="#A5C3D7"
+        android:backgroundTint="#839F83"
         android:fontFamily="sans-serif-black"
         android:text="Level Two"
         app:cornerRadius="20dp" />
@@ -33,7 +34,7 @@
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
-        android:backgroundTint="#A5C3D7"
+        android:backgroundTint="#839F83"
         android:fontFamily="sans-serif-black"
         android:text="Level Three"
         app:cornerRadius="20dp" />
@@ -43,7 +44,7 @@
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
-        android:backgroundTint="#A5C3D7"
+        android:backgroundTint="#839F83"
         android:fontFamily="sans-serif-black"
         android:text="Settings"
         app:cornerRadius="20dp" />
