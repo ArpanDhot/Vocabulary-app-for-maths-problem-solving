@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="#DAE4D3"
     tools:context=".levels.levelThree.SubMenuThree">
 
     <TextView
@@ -15,25 +16,26 @@
         android:gravity="center"
         android:textSize="32dp"
         android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
         android:text="Level Three Completed"/>
 
 
     <Button
-        android:id="@+id/levelTwo"
+        android:id="@+id/levelOne"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_margin="10dp"
-        android:backgroundTint="#A5C3D7"
+        android:backgroundTint="#839F83"
         android:fontFamily="sans-serif-black"
         android:text="Restart Level One"
         app:cornerRadius="20dp" />
 
     <Button
-        android:id="@+id/Menu"
+        android:id="@+id/menu"
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
-        android:backgroundTint="#A5C3D7"
+        android:backgroundTint="#839F83"
         android:fontFamily="sans-serif-black"
         android:text="Menu"
         app:cornerRadius="20dp" />

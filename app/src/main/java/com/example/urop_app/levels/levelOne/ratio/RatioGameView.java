@@ -142,7 +142,6 @@ public class RatioGameView extends SurfaceView implements SurfaceHolder.Callback
         for (int i = 0; i < 6; i++) {
 
             if (Rect.intersects(cageBlock[2].getRectangle(), monstersOne[i].getRectangle())) {
-                System.out.println("Trigger");
                 //Checking if the intersectCheck boolean is false. It means that the monster has not intersected and new monster has not been added to the linked list
                 if (intersectCheck[i] == false && i <= 1) {
                     //Creating adding new monster
@@ -153,12 +152,14 @@ public class RatioGameView extends SurfaceView implements SurfaceHolder.Callback
                     //It updates the score(ratio values)
                     if (i <= 1 && scoreFirst < 2) {
                         scoreFirst++;
-                        sumIntersect++;
+                        //Stopping the index to out of bound
+                        if(sumIntersect < 5){
+                            sumIntersect++;
+                        }
                     }
 
                 }
             } else if (Rect.intersects(cageBlock[3].getRectangle(), monstersOne[i].getRectangle())) {
-                System.out.println("Trigger");
                 //Checking if the intersectCheck boolean is false. It means that the monster has not intersected and new monster has not been added to the linked list
                 if (intersectCheck[i] == false && i >= 2) {
                     //Creating adding new monster
@@ -169,7 +170,10 @@ public class RatioGameView extends SurfaceView implements SurfaceHolder.Callback
                     //It updates the score(ratio values)
                     if (i >= 2 && scoreSecond < 6) {
                         scoreSecond++;
-                        sumIntersect++;
+                        //Stopping the index to out of bound
+                        if(sumIntersect < 5){
+                            sumIntersect++;
+                        }
                     }
 
                 }
@@ -177,6 +181,7 @@ public class RatioGameView extends SurfaceView implements SurfaceHolder.Callback
 
         }
 
+        System.out.println(sumIntersect);
         if (scoreFirst == 2 && scoreSecond == 4) {
             Intent intent = new Intent(mContext, AxisOne.class);
             mContext.startActivity(intent);

@@ -38,7 +38,7 @@ public class SubMenuTwo extends AppCompatActivity {
 
 
         //Assigning button var to button
-        nextLevel = findViewById(R.id.easyLevelButton);
+        nextLevel = findViewById(R.id.levelThree);
 
         //Setting up the button to do x when the button is pressed
         nextLevel.setOnClickListener(e->{
@@ -50,7 +50,7 @@ public class SubMenuTwo extends AppCompatActivity {
         });
 
         //Assigning button var to button
-        menu = findViewById(R.id.easyLevelButton);
+        menu = findViewById(R.id.menu);
 
         //Setting up the button to do x when the button is pressed
         menu.setOnClickListener(e->{

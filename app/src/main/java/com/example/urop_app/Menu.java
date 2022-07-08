@@ -76,5 +76,20 @@ public class Menu extends AppCompatActivity {
         });
 
 
+
+        //SETTINGS
+        //Assigning button var to button
+        settings = findViewById(R.id.settingsButton);
+
+        //Setting up the button to do x when the button is pressed
+        settings.setOnClickListener(e->{
+
+            //Moving to the Menu activity
+            //Inorder to intent from a class in a package you must import the exact class
+            Intent intent = new Intent(getApplicationContext(), Settings.class);
+            startActivity(intent);
+        });
+
+
     }
 }

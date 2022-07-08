@@ -40,7 +40,7 @@
         app:cornerRadius="20dp" />
 
     <Button
-        android:id="@+id/helpButton"
+        android:id="@+id/settingsButton"
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"

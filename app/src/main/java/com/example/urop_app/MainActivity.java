@@ -49,8 +49,11 @@ public class MainActivity extends AppCompatActivity {
         //Setting up the activity
         setContentView(R.layout.activity_main);
 
-        progressBar = findViewById(R.id.gameLoadingBar);
-        progressBarEngine();
+        Intent intent = new Intent(getApplicationContext(),Settings.class);
+        startActivity(intent);
+
+        //progressBar = findViewById(R.id.gameLoadingBar);
+        //progressBarEngine();
 
     }
 
@@ -94,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //EXECUTE THE CODE YOU WANT
                 if (progressBarStatus >= 100) {
-                    Intent intent = new Intent(getApplicationContext(),Menu.class);
+                    Intent intent = new Intent(getApplicationContext(),RatioTwo.class);
                     startActivity(intent);
                 }
             }
