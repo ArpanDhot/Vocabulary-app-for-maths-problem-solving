@@ -49,4 +49,14 @@
         android:text="Settings"
         app:cornerRadius="20dp" />
 
+    <Button
+        android:id="@+id/help"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:backgroundTint="#839F83"
+        android:fontFamily="sans-serif-black"
+        android:text="Help"
+        app:cornerRadius="20dp" />
+
 </LinearLayout>
