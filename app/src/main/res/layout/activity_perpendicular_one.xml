@@ -19,11 +19,11 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="705dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="20dp"
-        android:text="Two lines are perpendicular when they cross each other at a right angle which is 90 degrees." />
+        android:text="Two lines are perpendicular when they cross each other at a right angle which is 90 degrees."
+        android:textSize="20dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/readButton"

@@ -19,11 +19,11 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="690dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="20dp"
-        android:text="Axis is an imaginary straight line about which we measure an object’s position." />
+        android:text="Axis is an imaginary straight line about which we measure an object’s position."
+        android:textSize="20dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/readButton"
