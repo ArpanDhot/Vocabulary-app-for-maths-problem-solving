@@ -12,6 +12,7 @@ import com.example.urop_app.levels.levelOne.axis.AxisTwo;
 import com.example.urop_app.levels.levelOne.increase.IncreaseOne;
 import com.example.urop_app.levels.levelOne.increase.IncreaseTwo;
 import com.example.urop_app.levels.levelOne.ratio.RatioTwo;
+import com.example.urop_app.levels.levelOne.volume.VolumeOne;
 import com.example.urop_app.levels.levelOne.volume.VolumeTwo;
 import com.example.urop_app.levels.levelThree.perimeter.PerimeterOne;
 import com.example.urop_app.levels.levelThree.perimeter.PerimeterTwo;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         //Setting up the activity
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(getApplicationContext(),IncreaseOne.class);
+        Intent intent = new Intent(getApplicationContext(), VolumeOne.class);
         startActivity(intent);
 
 //        progressBar = findViewById(R.id.gameLoadingBar);

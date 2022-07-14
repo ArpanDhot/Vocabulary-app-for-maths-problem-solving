@@ -42,8 +42,6 @@ public class IncreaseOne extends AppCompatActivity {
         //Assigning button var to button
         readButton = findViewById(R.id.readButton);
 
-        //Calling the textSpeech method
-        textSpeech();
 
         //Setting up the button to do x when the button is pressed
         readButton.setOnClickListener(e -> {
@@ -69,8 +67,5 @@ public class IncreaseOne extends AppCompatActivity {
 
     }
 
-    private void textSpeech() {
 
-
-    }
 }

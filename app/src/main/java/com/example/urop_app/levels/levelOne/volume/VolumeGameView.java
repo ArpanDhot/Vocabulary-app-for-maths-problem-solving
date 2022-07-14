@@ -87,34 +87,34 @@ public class VolumeGameView extends SurfaceView implements SurfaceHolder.Callbac
         cupOnePoint = new Point(900, 1100);
         cupOneBlock = new Block(new Rect(0, 0, 400, 600), Color.argb(200, 220, 220, 220), cupOnePoint);
         cupTwoPoint = new Point(1700, 1100);
-        cupTwoBlock = new Block(new Rect(0, 0, 400, 600), Color.argb(200, 220, 220, 220), cupTwoPoint);
+        cupTwoBlock = new Block(new Rect(0, 0, 400, 600), Color.argb(150, 220, 220, 220), cupTwoPoint);
 
         //Setting up the objects for the water
         waterOnePoint = new Point(900, 1100);
-        waterOneBlock = new Block(new Rect(0, 0, 350, 550), Color.argb(170, 135, 206, 235), waterOnePoint);
+        waterOneBlock = new Block(new Rect(0, 0, 350, 550), Color.argb(120, 135, 206, 235), waterOnePoint);
         waterTwoPoint = new Point(1700, 1235);
-        waterTwoBlock = new Block(new Rect(0, 0, 350, 275), Color.argb(170, 135, 206, 235), waterTwoPoint);
+        waterTwoBlock = new Block(new Rect(0, 0, 350, 275), Color.argb(120, 135, 206, 235), waterTwoPoint);
         waterThreePoint = new Point(1700, 1235);
-        waterThreeBlock = new Block(new Rect(0, 0, 350, 275), Color.argb(170, 135, 206, 235), waterThreePoint);
+        waterThreeBlock = new Block(new Rect(0, 0, 350, 275), Color.argb(120, 135, 206, 235), waterThreePoint);
 
         //Creating the first block object to avoid to have any index issues
         monsterPointOne = new Point(370, 1320);
-        monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 1));
+        monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 6));
         for (int i = 0; i < 7; i++) {
             intersectCheck[i] = false;
         }
 
         //Creating objects of the static monster
         monsterPointTwo = new Point(900,1100);
-        monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 1));
+        monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 6));
         monsterPointTwo.set(950,950);
-        monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 1));
+        monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 6));
         monsterPointTwo.set(800,1000);
-        monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 1));
+        monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 6));
         monsterPointTwo.set(960,1150);
-        monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 1));
+        monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 6));
         monsterPointTwo.set(820,1300);
-        monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 1));
+        monstersTwo.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo, getContext(), 8, 6));
 
         setFocusable(true);
     }
@@ -134,7 +134,7 @@ public class VolumeGameView extends SurfaceView implements SurfaceHolder.Callbac
                     // Making the intersectCheck boolean true. Meaning that new object has been added
                     monsterPointOne.set(370, 1320);
                     if (monstersOne.size() < 7) {
-                        monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 1));
+                        monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 6));
                     }
                     intersectCheck[i] = true;
                     //Storing the intersections of the water with the monster
@@ -197,8 +197,8 @@ public class VolumeGameView extends SurfaceView implements SurfaceHolder.Callbac
         if (soundBoolean) {
             soundBoolean = false;
 
-            sound = new Sound(getContext(), 2);
-            banner = new Banner(getContext(), 2);
+            sound = new Sound(getContext(), 4);
+            banner = new Banner(getContext(), 4);
 
         }
 

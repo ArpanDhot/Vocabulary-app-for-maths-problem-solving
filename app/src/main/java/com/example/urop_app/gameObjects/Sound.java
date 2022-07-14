@@ -45,9 +45,9 @@ public class Sound {
         } else if (soundTrackNumber == 2) {
             soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 3) {
-            soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.volumeone); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 4) {
-            soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.volumetwo); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 5) {
             soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 6) {
@@ -88,7 +88,7 @@ public class Sound {
             soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 24) {
             soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
-        } 
+        }
 
     }
 

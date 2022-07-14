@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.urop_app.R;
+import com.example.urop_app.gameObjects.Sound;
 import com.example.urop_app.levels.levelOne.increase.IncreaseTwo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -16,11 +17,9 @@ import java.util.Locale;
 
 public class AxisOne extends AppCompatActivity {
 
-    private TextToSpeech textToSpeech;
     private FloatingActionButton readButton;
     private Button nextButton;
-
-    private String text = "Hello";
+    private Sound sound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +40,11 @@ public class AxisOne extends AppCompatActivity {
         //Assigning button var to button
         readButton = findViewById(R.id.readButton);
 
-        //Calling the textSpeech method
-        textSpeech();
+        //Setting up the button to do x when the button is pressed
+        readButton.setOnClickListener(e -> {
+            sound = new Sound(getApplicationContext(), 1);
+
+        });
 
         //Assigning button var to button
         nextButton = findViewById(R.id.intersectsOneNextButton);
@@ -50,43 +52,17 @@ public class AxisOne extends AppCompatActivity {
         nextButton.setOnClickListener(e -> {
 
             //To stop the speech before we move to the next activity
-            textToSpeech.stop();
-            textToSpeech.shutdown();
+            sound.getSoundLoad().pause();
+            sound.getSoundLoad().stop();
 
 
             //Moving to the Menu activity
             //Inorder to intent from a class in a package you must import the exact class
-            Intent intent = new Intent(getApplicationContext(), AxisTwo.class);
+            Intent intent = new Intent(getApplicationContext(), IncreaseTwo.class);
             startActivity(intent);
         });
 
     }
 
-    private void textSpeech() {
 
-        //Assigning new instance of "TextToSpeech" to the variable "textToSpeech".
-
-        textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-
-                //Setting up the language of the reader.
-                textToSpeech.setLanguage(Locale.GERMAN);
-
-                //Setting up the speech pitch
-                textToSpeech.setPitch(0.8f);
-
-                //Setting up the speech rate
-                textToSpeech.setSpeechRate(0.6f);
-            }
-        });
-
-        //Setting up the button to do x when the button is pressed
-        readButton.setOnClickListener(e -> {
-
-
-            textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-        });
-
-    }
 }
