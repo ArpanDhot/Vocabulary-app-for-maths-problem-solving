@@ -44,7 +44,7 @@ public class PerpendicularOne extends AppCompatActivity {
 
         //Setting up the button to do x when the button is pressed
         readButton.setOnClickListener(e -> {
-            sound = new Sound(getApplicationContext(), 1);
+            sound = new Sound(getApplicationContext(), 23);
             soundPlaying=true;
         });
 
@@ -62,7 +62,7 @@ public class PerpendicularOne extends AppCompatActivity {
 
             //Moving to the Menu activity
             //Inorder to intent from a class in a package you must import the exact class
-            Intent intent = new Intent(getApplicationContext(), IncreaseTwo.class);
+            Intent intent = new Intent(getApplicationContext(), PerpendicularTwo.class);
             startActivity(intent);
         });
 

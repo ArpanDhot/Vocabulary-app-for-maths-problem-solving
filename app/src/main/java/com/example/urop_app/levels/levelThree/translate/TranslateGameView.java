@@ -168,8 +168,8 @@ public class TranslateGameView extends SurfaceView implements SurfaceHolder.Call
         if (soundBoolean) {
             soundBoolean = false;
 
-            sound = new Sound(getContext(), 2);
-            banner = new Banner(getContext(), 2);
+            sound = new Sound(getContext(), 18);
+            banner = new Banner(getContext(), 18);
 
         }
 

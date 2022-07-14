@@ -109,7 +109,7 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
 
         //Monster
         pointMonsterOne = new Point(950, 900);
-        monsterOne = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), pointMonsterOne, context, 4, 1);
+        monsterOne = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), pointMonsterOne, context, 4, 6);
 
 
         setFocusable(true);
@@ -192,8 +192,8 @@ public class PerimeterGameView extends SurfaceView implements SurfaceHolder.Call
         if (soundBoolean) {
             soundBoolean = false;
 
-            sound = new Sound(getContext(), 2);
-            banner = new Banner(getContext(), 2);
+            sound = new Sound(getContext(), 20);
+            banner = new Banner(getContext(), 20);
 
         }
 

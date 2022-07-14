@@ -103,7 +103,7 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
 
         //Creating the first block object to avoid to have any index issues
         monsterPointOne = new Point(560, 500);
-        monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 10));
+        monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 5));
 
         //Monster place blocks
         placeBlockPoint = new Point(1800, 1350);

@@ -98,7 +98,7 @@ public class SymmetricalGameView extends SurfaceView implements SurfaceHolder.Ca
 
         //Monster
         pointMonsterOne = new Point(1110, 860);
-        monsterOne = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), pointMonsterOne, context, 4, 1);
+        monsterOne = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), pointMonsterOne, context, 4, 7);
 
 
         setFocusable(true);
@@ -174,8 +174,8 @@ public class SymmetricalGameView extends SurfaceView implements SurfaceHolder.Ca
         if (soundBoolean) {
             soundBoolean = false;
 
-            sound = new Sound(getContext(), 2);
-            banner = new Banner(getContext(), 2);
+            sound = new Sound(getContext(), 22);
+            banner = new Banner(getContext(), 22);
 
         }
 

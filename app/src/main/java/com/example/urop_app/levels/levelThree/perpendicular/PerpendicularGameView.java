@@ -146,13 +146,13 @@ public class PerpendicularGameView extends SurfaceView implements SurfaceHolder.
 
         //Drawing horizontal box
         for (int i = 0; i < 20; i++) {
-            blocksPath.add(new Block(new Rect(0, 0, 50, 50), Color.argb(200, 255, 0, 0), pointY));
+            blocksPath.add(new Block(new Rect(0, 0, 50, 50), Color.argb(150, 255, 255, 255), pointY));
             pointY.set(pointY.x, pointY.y + 50);
         }
 
         //Drawing vertical box
         for (int i = 0; i < 18; i++) {
-            blocksPath.add(new Block(new Rect(0, 0, 50, 50), Color.argb(200, 255, 0, 0), pointX));
+            blocksPath.add(new Block(new Rect(0, 0, 50, 50), Color.argb(150, 255, 255, 255), pointX));
             pointX.set(pointX.x + 50, pointX.y);
         }
 
@@ -195,8 +195,8 @@ public class PerpendicularGameView extends SurfaceView implements SurfaceHolder.
         if (soundBoolean) {
             soundBoolean = false;
 
-            sound = new Sound(getContext(), 2);
-            banner = new Banner(getContext(), 2);
+            sound = new Sound(getContext(), 24);
+            banner = new Banner(getContext(), 24);
 
         }
 
