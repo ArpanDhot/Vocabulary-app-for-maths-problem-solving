@@ -16,6 +16,7 @@ import android.view.SurfaceView;
 import com.example.urop_app.R;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.levels.levelTwo.SubMenuTwo;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
 import com.example.urop_app.levels.levelTwo.reflection.ReflectionGameLoop;
 
@@ -73,7 +74,7 @@ public class EstimateGameView extends SurfaceView implements SurfaceHolder.Callb
     private  void monsterMidPointIntersect(){
 
         if(Rect.intersects(monstersOne[0].getRectangle(),blockTrigger.getRectangle())){
-            Intent intent = new Intent(mContext, IntersectsTwo.class);
+            Intent intent = new Intent(mContext, SubMenuTwo.class);
             mContext.startActivity(intent);
         }
 

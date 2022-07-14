@@ -19,6 +19,7 @@ import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
 import com.example.urop_app.levels.levelOne.increase.IncreaseGameLoop;
 import com.example.urop_app.levels.levelTwo.SubMenuTwo;
+import com.example.urop_app.levels.levelTwo.estimate.EstimateTwo;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
 
 import java.util.ArrayList;
@@ -141,7 +142,7 @@ public class SequenceGameView extends SurfaceView implements SurfaceHolder.Callb
 
 
         if ((intersectMonsterPlace[0] == true) && (intersectMonsterPlace[1] == true) && (intersectMonsterPlace[2] == true)) {
-            Intent intent = new Intent(mContext, SubMenuTwo.class);
+            Intent intent = new Intent(mContext, EstimateTwo.class);
             mContext.startActivity(intent);
         }
     }
