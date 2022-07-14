@@ -21,6 +21,7 @@ public class ReflectionOne extends AppCompatActivity {
     private FloatingActionButton readButton;
     private Button nextButton;
     private Sound sound;
+    private boolean soundPlaying=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +42,12 @@ public class ReflectionOne extends AppCompatActivity {
         //Assigning button var to button
         readButton = findViewById(R.id.readButton);
 
+
+
         //Setting up the button to do x when the button is pressed
         readButton.setOnClickListener(e -> {
-            sound = new Sound(getApplicationContext(), 1);
-
+            sound = new Sound(getApplicationContext(), 9);
+            soundPlaying=true;
         });
 
         //Assigning button var to button
@@ -52,14 +55,17 @@ public class ReflectionOne extends AppCompatActivity {
 
         nextButton.setOnClickListener(e -> {
 
-            //To stop the speech before we move to the next activity
-            sound.getSoundLoad().pause();
-            sound.getSoundLoad().stop();
+            if (soundPlaying){
+                //To stop the speech before we move to the next activity
+                sound.getSoundLoad().pause();
+                sound.getSoundLoad().stop();
+            }
+
 
 
             //Moving to the Menu activity
             //Inorder to intent from a class in a package you must import the exact class
-            Intent intent = new Intent(getApplicationContext(), IncreaseTwo.class);
+            Intent intent = new Intent(getApplicationContext(), ReflectionTwo.class);
             startActivity(intent);
         });
 

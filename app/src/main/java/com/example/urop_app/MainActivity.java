@@ -25,6 +25,7 @@ import com.example.urop_app.levels.levelThree.translate.TranslateOne;
 import com.example.urop_app.levels.levelThree.translate.TranslateTwo;
 import com.example.urop_app.levels.levelTwo.estimate.EstimateTwo;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
+import com.example.urop_app.levels.levelTwo.reflection.ReflectionOne;
 import com.example.urop_app.levels.levelTwo.reflection.ReflectionTwo;
 import com.example.urop_app.levels.levelTwo.sequence.SequenceTwo;
 import com.google.android.material.transition.MaterialSharedAxis;
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         //Setting up the activity
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(getApplicationContext(), AxisOne.class);
+        Intent intent = new Intent(getApplicationContext(), ReflectionOne.class);
         startActivity(intent);
 
 //        progressBar = findViewById(R.id.gameLoadingBar);

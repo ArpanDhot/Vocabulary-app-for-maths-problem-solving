@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -82,9 +83,9 @@ public class ReflectionGameView extends SurfaceView implements SurfaceHolder.Cal
         monsterPointOne.set(1100, 1270);
         monstersOne[1] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 2);
         monsterPointOne.set(1000, 1185);
-        monstersOne[2] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 7);
+        monstersOne[2] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 3);
         monsterPointOne.set(840, 1185);
-        monstersOne[3] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 7);
+        monstersOne[3] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 3);
 
         //Block trigger
         placeBlockPointOne = new Point(1950, 1200);
@@ -105,6 +106,7 @@ public class ReflectionGameView extends SurfaceView implements SurfaceHolder.Cal
         textStyle.setColor(Color.rgb(234, 237, 239));
         textStyle.setStyle(Paint.Style.FILL);
         textStyle.setTextSize(40);
+        textStyle.setTypeface(Typeface.create("sans-serif-black",Typeface.BOLD));
 
         setFocusable(true);
     }
@@ -151,7 +153,7 @@ public class ReflectionGameView extends SurfaceView implements SurfaceHolder.Cal
         }
 
         //Printing the place button rectangle on the screen
-        buttonPlaceItemPaint.setColor(Color.rgb(175, 201, 220));
+        buttonPlaceItemPaint.setColor(Color.rgb(131, 159, 131));
         canvas.drawRect(buttonPlaceItem, buttonPlaceItemPaint);
         canvas.drawText("Place", 2350, 1215, textStyle);
 
@@ -159,8 +161,8 @@ public class ReflectionGameView extends SurfaceView implements SurfaceHolder.Cal
         if (soundBoolean) {
             soundBoolean = false;
 
-            sound = new Sound(getContext(), 2);
-            banner = new Banner(getContext(), 2);
+            sound = new Sound(getContext(), 10);
+            banner = new Banner(getContext(), 10);
 
         }
 

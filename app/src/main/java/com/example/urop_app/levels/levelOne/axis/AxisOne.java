@@ -20,6 +20,7 @@ public class AxisOne extends AppCompatActivity {
     private FloatingActionButton readButton;
     private Button nextButton;
     private Sound sound;
+    private boolean soundPlaying=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class AxisOne extends AppCompatActivity {
         //Setting up the button to do x when the button is pressed
         readButton.setOnClickListener(e -> {
             sound = new Sound(getApplicationContext(), 7);
-
+            soundPlaying=true;
         });
 
         //Assigning button var to button
@@ -51,9 +52,11 @@ public class AxisOne extends AppCompatActivity {
 
         nextButton.setOnClickListener(e -> {
 
-            //To stop the speech before we move to the next activity
-            sound.getSoundLoad().pause();
-            sound.getSoundLoad().stop();
+            if (soundPlaying){
+                //To stop the speech before we move to the next activity
+                sound.getSoundLoad().pause();
+                sound.getSoundLoad().stop();
+            }
 
 
             //Moving to the Menu activity
