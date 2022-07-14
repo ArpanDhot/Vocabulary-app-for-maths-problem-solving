@@ -69,8 +69,8 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
         pointMonsterOne = new Point(1300, 200);
         pointMonsterTwo = new Point(300, 400);
 
-        monsterOne = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), pointMonsterOne, context, 4, 1);
-        monsterTwo = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), pointMonsterTwo, context, 4, 1);
+        monsterOne = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), pointMonsterOne, context, 4, 6);
+        monsterTwo = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), pointMonsterTwo, context, 4, 11);
 
 
         drawBoxes();
@@ -134,13 +134,13 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
 
         //Drawing horizontal box
         for (int i = 0; i < 22; i++) {
-            blocksPath.add(new Block(new Rect(0, 0, 50, 50), Color.argb(30, 255, 0, 0), pointY));
+            blocksPath.add(new Block(new Rect(0, 0, 50, 50), Color.argb(70, 255,127,80), pointY));
             pointY.set(pointY.x, pointY.y + 50);
         }
 
         //Drawing vertical box
         for (int i = 0; i < 40; i++) {
-            blocksPath.add(new Block(new Rect(0, 0, 50, 50), Color.argb(30, 255, 255, 0), pointX));
+            blocksPath.add(new Block(new Rect(0, 0, 50, 50), Color.argb(80, 128,128,128), pointX));
             pointX.set(pointX.x + 50, pointX.y);
         }
 
@@ -183,8 +183,8 @@ public class IntersectsGameView extends SurfaceView implements SurfaceHolder.Cal
         if (soundBoolean) {
             soundBoolean = false;
 
-            sound = new Sound(getContext(), 2);
-            banner = new Banner(getContext(), 2);
+            sound = new Sound(getContext(), 12);
+            banner = new Banner(getContext(), 12);
 
         }
 
