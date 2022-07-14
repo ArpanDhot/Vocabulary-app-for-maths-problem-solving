@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="#DAE4D3"
     android:orientation="vertical"
     tools:context=".levels.levelThree.perpendicular.PerpendicularOne">
 
@@ -30,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:backgroundTint="#A5C3D7"
+        android:backgroundTint="#839F83"
         android:fontFamily="sans-serif-black"
         android:clickable="true"
         app:srcCompat="@drawable/playbutton" />
@@ -40,7 +41,7 @@
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
-        android:backgroundTint="#A5C3D7"
+        android:backgroundTint="#839F83"
         android:fontFamily="sans-serif-black"
         android:text="Next"
         app:cornerRadius="20dp" />
