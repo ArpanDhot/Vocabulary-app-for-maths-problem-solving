@@ -68,11 +68,11 @@ public class EstimateGameView extends SurfaceView implements SurfaceHolder.Callb
 
         //Creating the first block object to avoid to have any index issues
         monsterPointOne = new Point(1566, 406);
-        monstersOne[0] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 2); //User control monster
+        monstersOne[0] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 3); //User control monster
         monsterPointOne.set(200, 1025);
         monstersOne[1] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 2);
         monsterPointOne.set(2350, 1025);
-        monstersOne[2] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 7);
+        monstersOne[2] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 6);
 
         setFocusable(true);
     }
@@ -109,8 +109,8 @@ public class EstimateGameView extends SurfaceView implements SurfaceHolder.Callb
         if (soundBoolean) {
             soundBoolean = false;
 
-            sound = new Sound(getContext(), 2);
-            banner = new Banner(getContext(), 2);
+            sound = new Sound(getContext(), 16);
+            banner = new Banner(getContext(), 16);
 
         }
 

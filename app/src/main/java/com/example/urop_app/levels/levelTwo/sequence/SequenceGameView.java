@@ -76,7 +76,7 @@ public class SequenceGameView extends SurfaceView implements SurfaceHolder.Callb
 
         //Creating the first block object to avoid to have any index issues
         monsterPointOne = new Point(950, 1000);
-        monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 6));
+        monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 10));
 
         //Monster place blocks
         placeBlockPoint = new Point(1680, 1350); //1800,1350

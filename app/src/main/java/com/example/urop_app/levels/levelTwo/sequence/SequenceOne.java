@@ -62,7 +62,7 @@ public class SequenceOne extends AppCompatActivity {
 
             //Moving to the Menu activity
             //Inorder to intent from a class in a package you must import the exact class
-            Intent intent = new Intent(getApplicationContext(), IncreaseTwo.class);
+            Intent intent = new Intent(getApplicationContext(), SequenceTwo.class);
             startActivity(intent);
         });
 
