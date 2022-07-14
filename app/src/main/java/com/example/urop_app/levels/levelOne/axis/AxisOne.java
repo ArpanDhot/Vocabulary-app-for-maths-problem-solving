@@ -42,7 +42,7 @@ public class AxisOne extends AppCompatActivity {
 
         //Setting up the button to do x when the button is pressed
         readButton.setOnClickListener(e -> {
-            sound = new Sound(getApplicationContext(), 5);
+            sound = new Sound(getApplicationContext(), 7);
 
         });
 
@@ -58,7 +58,7 @@ public class AxisOne extends AppCompatActivity {
 
             //Moving to the Menu activity
             //Inorder to intent from a class in a package you must import the exact class
-            Intent intent = new Intent(getApplicationContext(), IncreaseTwo.class);
+            Intent intent = new Intent(getApplicationContext(), AxisTwo.class);
             startActivity(intent);
         });
 

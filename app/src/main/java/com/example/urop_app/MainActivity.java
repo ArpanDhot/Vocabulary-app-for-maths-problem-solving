@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 
+import com.example.urop_app.levels.levelOne.axis.AxisOne;
 import com.example.urop_app.levels.levelOne.axis.AxisTwo;
 import com.example.urop_app.levels.levelOne.increase.IncreaseOne;
 import com.example.urop_app.levels.levelOne.increase.IncreaseTwo;
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         //Setting up the activity
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(getApplicationContext(), RatioOne.class);
+        Intent intent = new Intent(getApplicationContext(), AxisOne.class);
         startActivity(intent);
 
 //        progressBar = findViewById(R.id.gameLoadingBar);

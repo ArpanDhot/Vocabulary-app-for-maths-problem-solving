@@ -39,7 +39,7 @@ public class Banner implements GameObject {
                 break;
 
             case 8:
-                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumebanner), 2560, 1500, true);
+                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.axisbanner), 2560, 1500, true);
                 break;
 
             case 10:

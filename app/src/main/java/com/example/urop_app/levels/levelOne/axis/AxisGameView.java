@@ -163,8 +163,8 @@ public class AxisGameView extends SurfaceView implements SurfaceHolder.Callback 
         if (soundBoolean) {
             soundBoolean = false;
 
-            sound = new Sound(getContext(), 6);
-            banner = new Banner(getContext(), 6);
+            sound = new Sound(getContext(), 8);
+            banner = new Banner(getContext(), 8);
 
         }
 
