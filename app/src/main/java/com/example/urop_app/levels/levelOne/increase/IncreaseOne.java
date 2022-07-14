@@ -17,11 +17,11 @@ import java.util.Locale;
 
 public class IncreaseOne extends AppCompatActivity {
 
-    private TextToSpeech textToSpeech;
+
     private FloatingActionButton readButton;
     private Button nextButton;
+    private Sound sound;
 
-    private String text = "Hello";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,14 +45,20 @@ public class IncreaseOne extends AppCompatActivity {
         //Calling the textSpeech method
         textSpeech();
 
+        //Setting up the button to do x when the button is pressed
+        readButton.setOnClickListener(e -> {
+            sound = new Sound(getApplicationContext(), 1);
+
+        });
+
         //Assigning button var to button
         nextButton = findViewById(R.id.intersectsOneNextButton);
 
         nextButton.setOnClickListener(e -> {
 
             //To stop the speech before we move to the next activity
-            textToSpeech.stop();
-            textToSpeech.shutdown();
+            sound.getSoundLoad().pause();
+            sound.getSoundLoad().stop();
 
 
             //Moving to the Menu activity
@@ -65,28 +71,6 @@ public class IncreaseOne extends AppCompatActivity {
 
     private void textSpeech() {
 
-        //Assigning new instance of "TextToSpeech" to the variable "textToSpeech".
-
-        textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-
-                //Setting up the language of the reader.
-                textToSpeech.setLanguage(Locale.GERMAN);
-
-                //Setting up the speech pitch
-                textToSpeech.setPitch(0.8f);
-
-                //Setting up the speech rate
-                textToSpeech.setSpeechRate(0.6f);
-            }
-        });
-
-        //Setting up the button to do x when the button is pressed
-        readButton.setOnClickListener(e -> {
-
-           textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-        });
 
     }
 }

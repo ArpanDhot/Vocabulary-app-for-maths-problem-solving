@@ -27,51 +27,51 @@ public class Banner implements GameObject {
         switch (bannerNumber) {
 
             case 2:
-                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumeinstruction), 2560, 1500, true);
+                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.increasebanner), 2560, 1500, true);
                 break;
 
             case 4:
-                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumeinstruction), 2560, 1500, true);
+                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumebanner), 2560, 1500, true);
                 break;
 
             case 6:
-                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumeinstruction), 2560, 1500, true);
+                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumebanner), 2560, 1500, true);
                 break;
 
             case 8:
-                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumeinstruction), 2560, 1500, true);
+                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumebanner), 2560, 1500, true);
                 break;
 
             case 10:
-                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumeinstruction), 2560, 1500, true);
+                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumebanner), 2560, 1500, true);
                 break;
 
             case 12:
-                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumeinstruction), 2560, 1500, true);
+                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumebanner), 2560, 1500, true);
                 break;
 
             case 14:
-                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumeinstruction), 2560, 1500, true);
+                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumebanner), 2560, 1500, true);
                 break;
 
             case 16:
-                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumeinstruction), 2560, 1500, true);
+                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumebanner), 2560, 1500, true);
                 break;
 
             case 18:
-                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumeinstruction), 2560, 1500, true);
+                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumebanner), 2560, 1500, true);
                 break;
 
             case 20:
-                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumeinstruction), 2560, 1500, true);
+                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumebanner), 2560, 1500, true);
                 break;
 
             case 22:
-                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumeinstruction), 2560, 1500, true);
+                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumebanner), 2560, 1500, true);
                 break;
 
             case 24:
-                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumeinstruction), 2560, 1500, true);
+                bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.volumebanner), 2560, 1500, true);
                 break;
 
 
