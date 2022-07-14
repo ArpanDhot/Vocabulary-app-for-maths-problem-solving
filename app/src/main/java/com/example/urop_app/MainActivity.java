@@ -13,6 +13,7 @@ import com.example.urop_app.levels.levelOne.increase.IncreaseOne;
 import com.example.urop_app.levels.levelOne.increase.IncreaseTwo;
 import com.example.urop_app.levels.levelOne.ratio.RatioTwo;
 import com.example.urop_app.levels.levelOne.volume.VolumeTwo;
+import com.example.urop_app.levels.levelThree.perimeter.PerimeterOne;
 import com.example.urop_app.levels.levelThree.perimeter.PerimeterTwo;
 import com.example.urop_app.levels.levelThree.perpendicular.PerpendicularTwo;
 import com.example.urop_app.levels.levelThree.symmetrical.SymmetricalTwo;
@@ -49,10 +50,11 @@ public class MainActivity extends AppCompatActivity {
         //Setting up the activity
         setContentView(R.layout.activity_main);
 
+        Intent intent = new Intent(getApplicationContext(),TranslateTwo.class);
+        startActivity(intent);
 
-
-        progressBar = findViewById(R.id.gameLoadingBar);
-        progressBarEngine();
+//        progressBar = findViewById(R.id.gameLoadingBar);
+//        progressBarEngine();
 
     }
 
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         //reset progress bar status
         progressBarStatus = 0;
 
-        //reset filesize
+        //reset file size
         fileSize = 0;
 
         new Thread(new Runnable() {

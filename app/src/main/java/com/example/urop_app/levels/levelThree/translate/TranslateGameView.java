@@ -97,17 +97,17 @@ public class TranslateGameView extends SurfaceView implements SurfaceHolder.Call
         //Example monster
         monsterPointOne = new Point(480, 1185);
         monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 0, 3));
-        monsterPointOne.set(2350, 1019);
+        monsterPointOne.set(185, 1019);
         monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 0, 3));
 
-        monsterPointOne = new Point(2045, 1179);
+        monsterPointOne = new Point(1108, 1188);
         monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 0, 4));
         monsterPointOne.set(803, 679);
         monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 0, 4));
 
-        monsterPointOne = new Point(1108, 1188);
+        monsterPointOne = new Point(2045, 1179);
         monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 0, 7));
-        monsterPointOne.set(1108, 1188);
+        monsterPointOne.set(2045, 1179);
         monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 7));
 
         setFocusable(true);
@@ -174,7 +174,7 @@ public class TranslateGameView extends SurfaceView implements SurfaceHolder.Call
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_MOVE:
                 monstersOne.get(monstersOne.size() - 1).movement(event);
-
+                System.out.println("X:"+event.getX()+" | Y:"+event.getY());
                 return true;
         }
         return super.onTouchEvent(event);
