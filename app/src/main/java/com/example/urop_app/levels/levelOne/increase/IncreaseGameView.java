@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -47,9 +48,6 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
     //BLock place intersect true
     private boolean[] intersectMonsterPlace = new boolean[4];
 
-    //Touch detection rectangle
-    private Point touchFollowPoint;
-    private Rect touchFollow;
 
     //Monsters auto
     private Point[] monsterPointTwo = new Point[6];
@@ -59,15 +57,6 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
     private Point monsterPointOne;
     private ArrayList<Characters> monstersOne = new ArrayList<>();
 
-    //Button to place items
-    private Point buttonPlaceItemPoint;
-    private Rect buttonPlaceItem;
-    private boolean buttonPlaceItemPressed = false;
-    private int buttonPlaceItemClickCount = 0;
-    private Paint buttonPlaceItemPaint;
-
-    //Text properties
-    private Paint textStyle;
 
 
     public IncreaseGameView(Context context) {
@@ -85,21 +74,6 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
         //Setting up the game loop
         increaseGameLoop = new IncreaseGameLoop(this, surfaceHolder);
 
-        textStyle = new Paint();
-        textStyle.setColor(Color.rgb(234, 237, 239));
-        textStyle.setStyle(Paint.Style.FILL);
-        textStyle.setTextSize(40);
-
-        //The touchFollowPoint(rectangle) will be used to get intersection against the save and the put "button". This approach was better than the conditions to create the perimeter because then I could not delay and the code would have been long.
-        touchFollowPoint = new Point(500, 500);
-        touchFollow = new Rect(0, 0, 40, 40);
-        touchFollow.set(touchFollowPoint.x - touchFollow.width() / 2, touchFollowPoint.y - touchFollow.height() / 2, touchFollowPoint.x + touchFollow.width() / 2, touchFollowPoint.y + touchFollow.height() / 2);
-
-        //The buttonPad (rectangle) will be used as button to put in the items
-        buttonPlaceItemPoint = new Point(2400, 1200);
-        buttonPlaceItem = new Rect(0, 0, 150, 150);
-        buttonPlaceItem.set(buttonPlaceItemPoint.x - buttonPlaceItem.width() / 2, buttonPlaceItemPoint.y - buttonPlaceItem.height() / 2, buttonPlaceItemPoint.x + buttonPlaceItem.width() / 2, buttonPlaceItemPoint.y + buttonPlaceItem.height() / 2);
-        buttonPlaceItemPaint = new Paint();
 
         //Creating the first block object to avoid to have any index issues
         monsterPointOne = new Point(560, 500);
@@ -108,7 +82,7 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
         //Monster place blocks
         placeBlockPoint = new Point(1800, 1350);
         for (int i = 0; i < 4; i++) {
-            placeBlock[i] = new Block(new Rect(0, 0, 100, 100), Color.argb(70, 255, 255, 255), placeBlockPoint);
+            placeBlock[i] = new Block(new Rect(0, 0, 100, 100), Color.argb(150, 255, 255, 255), placeBlockPoint);
             placeBlockPoint.set(placeBlockPoint.x, placeBlockPoint.y - 110);
         }
 
@@ -155,24 +129,31 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
 
     }
 
+
     //Method to check if the monsters are placed in the rectangles
     private void monsterPlaceCheck() {
 
+        //The var i is helping us to get the index of the monster
+        int i=0;
         for (Characters characters : monstersOne) {
 
-            if (Rect.intersects(characters.getRectangle(), placeBlock[0].getRectangle())) {
+            if ((Rect.intersects(characters.getRectangle(), placeBlock[0].getRectangle()) && intersectMonsterPlace[0] ==false ) && i == 0) {
                 intersectMonsterPlace[0] = true;
+                monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 5));
             }
-            if (Rect.intersects(characters.getRectangle(), placeBlock[1].getRectangle())) {
+            if ((Rect.intersects(characters.getRectangle(), placeBlock[1].getRectangle()) && intersectMonsterPlace[1] ==false) && i == 1) {
                 intersectMonsterPlace[1] = true;
+                monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 5));
             }
-            if (Rect.intersects(characters.getRectangle(), placeBlock[2].getRectangle())) {
+            if ((Rect.intersects(characters.getRectangle(), placeBlock[2].getRectangle()) && intersectMonsterPlace[2] ==false) && i == 2) {
                 intersectMonsterPlace[2] = true;
+                monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 5));
             }
-            if (Rect.intersects(characters.getRectangle(), placeBlock[3].getRectangle())) {
+            if ((Rect.intersects(characters.getRectangle(), placeBlock[3].getRectangle()) && intersectMonsterPlace[3] ==false) && i == 3) {
                 intersectMonsterPlace[3] = true;
+                monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 5));
             }
-
+            i++;
         }
 
 
@@ -206,11 +187,6 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
             monster.draw(canvas);
         }
 
-        //Printing the place button rectangle on the screen
-        buttonPlaceItemPaint.setColor(Color.rgb(175, 201, 220));
-        canvas.drawRect(buttonPlaceItem, buttonPlaceItemPaint);
-        canvas.drawText("Place", 2350, 1215, textStyle);
-
         //loading up the sound and the banner
         if (soundBoolean) {
             soundBoolean = false;
@@ -229,18 +205,6 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
 
     public void update() {
 
-        //2) I am checking if the click count is equal to 2 then trigger and reset the count
-        //To place the block
-        if (buttonPlaceItemClickCount == 2) {
-
-            //Creating the locks on when the user clicks
-            monsterPointOne.set(50, 50);
-            monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 5));
-            //Reset the count of click so the cycle continues
-            buttonPlaceItemClickCount = 0;
-        }
-
-
         //
         monsterAutoMove();
 
@@ -251,31 +215,15 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+
         //Only letting the user play once the voice over is done
         if (!sound.getSoundLoad().isPlaying()) {
+            System.out.println("Trigger");
             // Handle user input touch event actions
             switch (event.getActionMasked()) {
                 case MotionEvent.ACTION_DOWN:
-                    //1) I am checking if the touchFollow is intersection with the buttonPad.Then assigning the trigger to the boolean...LINE 59
-                    //Button place trigger
-                    if (Rect.intersects(touchFollow, buttonPlaceItem)) {
-                        buttonPlaceItemPressed = true;
-                        if (buttonPlaceItemPressed == true) {
-                            buttonPlaceItemClickCount++;
-                        }
-                    }
                 case MotionEvent.ACTION_MOVE:
-                    //Updating the position of the touchFollow rectangle. It is going to have the exact pos where is pressed.
-                    touchFollow.set((int) event.getX() - touchFollow.width() / 2, (int) event.getY() - touchFollow.height() / 2, (int) event.getX() + touchFollow.width() / 2, (int) event.getY() + touchFollow.height() / 2);
-
-                    //Only calling the block movement method of the most recent element
-                    //The condition is there to stop the block to move when the user is pressing the button
-                    if (!(Rect.intersects(touchFollow, buttonPlaceItem))) {
-                        monstersOne.get(monstersOne.size() - 1).movement(event);
-                    }
-                case MotionEvent.ACTION_UP:
-                    //Closing down the button when the the finger is lifted from the screen.
-                    buttonPlaceItemPressed = false;
+                    monstersOne.get(monstersOne.size()-1).movement(event);
 
                     return true;
             }
