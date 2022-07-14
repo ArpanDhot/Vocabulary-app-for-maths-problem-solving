@@ -49,13 +49,13 @@ public class Sound {
         } else if (soundTrackNumber == 4) {
             soundLoad = MediaPlayer.create(context,R.raw.volumetwo); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 5) {
-            soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.ratioone); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 6) {
-            soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.ratiotwo); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 7) {
-            soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.axisone); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 8) {
-            soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.axistwo); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 9) {
             soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 10 ) {
