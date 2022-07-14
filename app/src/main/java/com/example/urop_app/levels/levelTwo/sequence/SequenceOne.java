@@ -44,7 +44,7 @@ public class SequenceOne extends AppCompatActivity {
 
         //Setting up the button to do x when the button is pressed
         readButton.setOnClickListener(e -> {
-            sound = new Sound(getApplicationContext(), 1);
+            sound = new Sound(getApplicationContext(), 13);
             soundPlaying=true;
         });
 

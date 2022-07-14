@@ -121,12 +121,12 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
         monsterPointTwo[4] = new Point(-250, 1240);
         monsterPointTwo[5] = new Point(-450, 1350);
 
-        monstersTwo[0] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[0], getContext(), 2, 10);
-        monstersTwo[1] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[1], getContext(), 2, 10);
-        monstersTwo[2] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[2], getContext(), 2, 10);
-        monstersTwo[3] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[3], getContext(), 2, 10);
-        monstersTwo[4] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[4], getContext(), 2, 10);
-        monstersTwo[5] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[5], getContext(), 2, 10);
+        monstersTwo[0] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[0], getContext(), 2, 5);
+        monstersTwo[1] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[1], getContext(), 2, 5);
+        monstersTwo[2] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[2], getContext(), 2, 5);
+        monstersTwo[3] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[3], getContext(), 2, 5);
+        monstersTwo[4] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[4], getContext(), 2, 5);
+        monstersTwo[5] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[5], getContext(), 2, 5);
 
 
         setFocusable(true);
@@ -235,7 +235,7 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
 
             //Creating the locks on when the user clicks
             monsterPointOne.set(50, 50);
-            monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 10));
+            monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 5));
             //Reset the count of click so the cycle continues
             buttonPlaceItemClickCount = 0;
         }

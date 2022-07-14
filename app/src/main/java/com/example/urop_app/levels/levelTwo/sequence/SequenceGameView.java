@@ -92,11 +92,11 @@ public class SequenceGameView extends SurfaceView implements SurfaceHolder.Callb
         monsterPointTwo[3] = new Point(-250, 1350);
         monsterPointTwo[4] = new Point(-250, 1350);
 
-        monstersTwo[0] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[0], getContext(), 2, 10);
-        monstersTwo[1] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[1], getContext(), 2, 6);
-        monstersTwo[2] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[2], getContext(), 2, 6);
-        monstersTwo[3] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[3], getContext(), 2, 6);
-        monstersTwo[4] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[4], getContext(), 2, 10);
+        monstersTwo[0] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[0], getContext(), 2, 4);
+        monstersTwo[1] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[1], getContext(), 2, 10);
+        monstersTwo[2] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[2], getContext(), 2, 10);
+        monstersTwo[3] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[3], getContext(), 2, 10);
+        monstersTwo[4] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[4], getContext(), 2, 4);
 
 
         setFocusable(true);
@@ -135,15 +135,15 @@ public class SequenceGameView extends SurfaceView implements SurfaceHolder.Callb
             if (Rect.intersects(characters.getRectangle(), placeBlock[0].getRectangle()) && intersectMonsterPlace[0] != true) {
 
                 intersectMonsterPlace[0] = true;
-                monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 6));
+                monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 10));
             }
             if (Rect.intersects(characters.getRectangle(), placeBlock[1].getRectangle()) && intersectMonsterPlace[1] != true) {
                 intersectMonsterPlace[1] = true;
-                monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 6));
+                monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 10));
             }
             if (Rect.intersects(characters.getRectangle(), placeBlock[2].getRectangle()) && intersectMonsterPlace[2] != true) {
                 intersectMonsterPlace[2] = true;
-                monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 6));
+                monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 10));
             }
         }
 
@@ -182,8 +182,8 @@ public class SequenceGameView extends SurfaceView implements SurfaceHolder.Callb
         if (soundBoolean) {
             soundBoolean = false;
 
-            sound = new Sound(getContext(), 2);
-            banner = new Banner(getContext(), 2);
+            sound = new Sound(getContext(), 14);
+            banner = new Banner(getContext(), 14);
 
         }
 
