@@ -41,11 +41,9 @@ public class Sound {
 
         //Setting up the sound track
         if (soundTrackNumber == 1) {
-            soundLoad = MediaPlayer.create(context,R.raw.main_background_music ); //assigning the track to the MediaPlayer
-
-
+            soundLoad = MediaPlayer.create(context,R.raw.increaseone); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 2) {
-
+            soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
         }
 
     }
@@ -73,5 +71,11 @@ public class Sound {
     }
 
 
+    public MediaPlayer getSoundLoad() {
+        return soundLoad;
+    }
 
+    public void setSoundLoad(MediaPlayer soundLoad) {
+        this.soundLoad = soundLoad;
+    }
 }

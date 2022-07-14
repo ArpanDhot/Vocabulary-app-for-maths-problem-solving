@@ -14,8 +14,10 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.example.urop_app.R;
+import com.example.urop_app.gameObjects.Banner;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.gameObjects.Sound;
 import com.example.urop_app.levels.levelOne.axis.AxisGameLoop;
 import com.example.urop_app.levels.levelThree.perimeter.PerimeterOne;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
@@ -27,6 +29,11 @@ public class TranslateGameView extends SurfaceView implements SurfaceHolder.Call
     //Setting up required classes by the this class
     private TranslateGameLoop translateGameLoop;
     private Context mContext;
+
+    //Banner and voiceover
+    private Sound sound;
+    private Banner banner;
+    boolean soundBoolean = true;
 
     //Setting up the background
     private Bitmap mainBackground;
@@ -157,7 +164,19 @@ public class TranslateGameView extends SurfaceView implements SurfaceHolder.Call
             monster.draw(canvas);
         }
 
+        //loading up the sound and the banner
+        if (soundBoolean) {
+            soundBoolean = false;
 
+            sound = new Sound(getContext(), 2);
+            banner = new Banner(getContext(), 2);
+
+        }
+
+        //drawing the banner until the voiceover is on
+        if (sound.getSoundLoad().isPlaying()) {
+            banner.draw(canvas);
+        }
     }
 
     public void update() {
@@ -169,13 +188,16 @@ public class TranslateGameView extends SurfaceView implements SurfaceHolder.Call
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        // Handle user input touch event actions
-        switch (event.getActionMasked()) {
-            case MotionEvent.ACTION_DOWN:
-            case MotionEvent.ACTION_MOVE:
-                monstersOne.get(monstersOne.size() - 1).movement(event);
-                System.out.println("X:"+event.getX()+" | Y:"+event.getY());
-                return true;
+        //Only letting the user play once the voice over is done
+        if (!sound.getSoundLoad().isPlaying()) {
+            // Handle user input touch event actions
+            switch (event.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN:
+                case MotionEvent.ACTION_MOVE:
+                    monstersOne.get(monstersOne.size() - 1).movement(event);
+                    System.out.println("X:" + event.getX() + " | Y:" + event.getY());
+                    return true;
+            }
         }
         return super.onTouchEvent(event);
     }

@@ -14,8 +14,10 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.example.urop_app.R;
+import com.example.urop_app.gameObjects.Banner;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.gameObjects.Sound;
 import com.example.urop_app.levels.levelTwo.SubMenuTwo;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
 import com.example.urop_app.levels.levelTwo.reflection.ReflectionGameLoop;
@@ -25,6 +27,11 @@ public class EstimateGameView extends SurfaceView implements SurfaceHolder.Callb
     //Setting up required classes by the this class
     private EstimateGameLoop estimateGameLoop;
     private Context mContext;
+
+    //Banner and voiceover
+    private Sound sound;
+    private Banner banner;
+    boolean soundBoolean = true;
 
     //Setting up the background
     private Bitmap mainBackground;
@@ -98,6 +105,21 @@ public class EstimateGameView extends SurfaceView implements SurfaceHolder.Callb
             characters.draw(canvas);
         }
 
+        //loading up the sound and the banner
+        if (soundBoolean) {
+            soundBoolean = false;
+
+            sound = new Sound(getContext(), 2);
+            banner = new Banner(getContext(), 2);
+
+        }
+
+        //drawing the banner until the voiceover is on
+        if (sound.getSoundLoad().isPlaying()) {
+            banner.draw(canvas);
+        }
+
+
     }
 
     public void update() {
@@ -110,15 +132,18 @@ public class EstimateGameView extends SurfaceView implements SurfaceHolder.Callb
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        // Handle user input touch event actions
-        switch (event.getActionMasked()) {
-            case MotionEvent.ACTION_DOWN:
+        //Only letting the user play once the voice over is done
+        if (!sound.getSoundLoad().isPlaying()) {
+            // Handle user input touch event actions
+            switch (event.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN:
 
-            case MotionEvent.ACTION_MOVE:
-                //Logic for the monster main
-                monstersOne[0].movement(event);
+                case MotionEvent.ACTION_MOVE:
+                    //Logic for the monster main
+                    monstersOne[0].movement(event);
 
-                return true;
+                    return true;
+            }
         }
         return super.onTouchEvent(event);
     }

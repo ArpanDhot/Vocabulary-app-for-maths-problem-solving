@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         //Setting up the activity
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(getApplicationContext(),TranslateTwo.class);
+        Intent intent = new Intent(getApplicationContext(),PerimeterTwo.class);
         startActivity(intent);
 
 //        progressBar = findViewById(R.id.gameLoadingBar);

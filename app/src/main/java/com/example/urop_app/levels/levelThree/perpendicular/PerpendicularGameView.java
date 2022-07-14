@@ -15,8 +15,10 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
 import com.example.urop_app.R;
+import com.example.urop_app.gameObjects.Banner;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.gameObjects.Sound;
 import com.example.urop_app.levels.levelThree.SubMenuThree;
 import com.example.urop_app.levels.levelTwo.SubMenuTwo;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsOne;
@@ -25,6 +27,10 @@ import java.util.LinkedList;
 
 public class PerpendicularGameView extends SurfaceView implements SurfaceHolder.Callback {
 
+    //Banner and voiceover
+    private Sound sound;
+    private Banner banner;
+    boolean soundBoolean = true;
 
     private PerpendicularGameLoop perpendicularGameLoop;
     private Context mContext;
@@ -184,6 +190,20 @@ public class PerpendicularGameView extends SurfaceView implements SurfaceHolder.
 
         //House
         canvas.drawBitmap(house, 600, 1000, null);
+
+        //loading up the sound and the banner
+        if (soundBoolean) {
+            soundBoolean = false;
+
+            sound = new Sound(getContext(), 2);
+            banner = new Banner(getContext(), 2);
+
+        }
+
+        //drawing the banner until the voiceover is on
+        if (sound.getSoundLoad().isPlaying()) {
+            banner.draw(canvas);
+        }
     }
 
     public void update() {
@@ -211,18 +231,21 @@ public class PerpendicularGameView extends SurfaceView implements SurfaceHolder.
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        // Handle user input touch event actions
-        switch (event.getActionMasked()) {
-            case MotionEvent.ACTION_DOWN:
-            case MotionEvent.ACTION_MOVE:
-                //Checking if the monsters has crossed the paths
-                //Checking if the boxes are overlapping
-                //Setting a limit on user draw box
-                pointDraw.set((int) event.getX(), (int) event.getY());
+        //Only letting the user play once the voice over is done
+        if (!sound.getSoundLoad().isPlaying()) {
+            // Handle user input touch event actions
+            switch (event.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN:
+                case MotionEvent.ACTION_MOVE:
+                    //Checking if the monsters has crossed the paths
+                    //Checking if the boxes are overlapping
+                    //Setting a limit on user draw box
+                    pointDraw.set((int) event.getX(), (int) event.getY());
 
-                blocksDraw.add(new Block(new Rect(0, 0, 50, 50), Color.rgb(255, 255, 255), pointDraw));
+                    blocksDraw.add(new Block(new Rect(0, 0, 50, 50), Color.rgb(255, 255, 255), pointDraw));
 
-                return true;
+                    return true;
+            }
         }
         return super.onTouchEvent(event);
     }

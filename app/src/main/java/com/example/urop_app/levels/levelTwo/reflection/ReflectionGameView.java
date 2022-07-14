@@ -15,8 +15,10 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.example.urop_app.R;
+import com.example.urop_app.gameObjects.Banner;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.gameObjects.Sound;
 import com.example.urop_app.levels.levelOne.axis.AxisGameLoop;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsOne;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
@@ -26,6 +28,11 @@ public class ReflectionGameView extends SurfaceView implements SurfaceHolder.Cal
     //Setting up required classes by the this class
     private ReflectionGameLoop reflectionGameLoop;
     private Context mContext;
+
+    //Banner and voiceover
+    private Sound sound;
+    private Banner banner;
+    boolean soundBoolean = true;
 
     //Setting up the background
     private Bitmap mainBackground;
@@ -148,6 +155,20 @@ public class ReflectionGameView extends SurfaceView implements SurfaceHolder.Cal
         canvas.drawRect(buttonPlaceItem, buttonPlaceItemPaint);
         canvas.drawText("Place", 2350, 1215, textStyle);
 
+        //loading up the sound and the banner
+        if (soundBoolean) {
+            soundBoolean = false;
+
+            sound = new Sound(getContext(), 2);
+            banner = new Banner(getContext(), 2);
+
+        }
+
+        //drawing the banner until the voiceover is on
+        if (sound.getSoundLoad().isPlaying()) {
+            banner.draw(canvas);
+        }
+
     }
 
     public void update() {
@@ -159,31 +180,34 @@ public class ReflectionGameView extends SurfaceView implements SurfaceHolder.Cal
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        // Handle user input touch event actions
-        switch (event.getActionMasked()) {
-            case MotionEvent.ACTION_DOWN:
-                //1) I am checking if the touchFollow is intersection with the buttonPad.Then assigning the trigger to the boolean...LINE 59
-                //Button place trigger
-                if (Rect.intersects(touchFollow, buttonPlaceItem)) {
-                    buttonPlaceItemPressed = true;
-                    if (buttonPlaceItemPressed == true) {
-                        buttonPlaceItemClickCount++;
+        //Only letting the user play once the voice over is done
+        if (!sound.getSoundLoad().isPlaying()) {
+            // Handle user input touch event actions
+            switch (event.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN:
+                    //1) I am checking if the touchFollow is intersection with the buttonPad.Then assigning the trigger to the boolean...LINE 59
+                    //Button place trigger
+                    if (Rect.intersects(touchFollow, buttonPlaceItem)) {
+                        buttonPlaceItemPressed = true;
+                        if (buttonPlaceItemPressed == true) {
+                            buttonPlaceItemClickCount++;
+                        }
                     }
-                }
-            case MotionEvent.ACTION_MOVE:
-                //Updating the position of the touchFollow rectangle. It is going to have the exact pos where is pressed.
-                touchFollow.set((int) event.getX() - touchFollow.width() / 2, (int) event.getY() - touchFollow.height() / 2, (int) event.getX() + touchFollow.width() / 2, (int) event.getY() + touchFollow.height() / 2);
+                case MotionEvent.ACTION_MOVE:
+                    //Updating the position of the touchFollow rectangle. It is going to have the exact pos where is pressed.
+                    touchFollow.set((int) event.getX() - touchFollow.width() / 2, (int) event.getY() - touchFollow.height() / 2, (int) event.getX() + touchFollow.width() / 2, (int) event.getY() + touchFollow.height() / 2);
 
-                //Logic for the monster main and the shadow monster
-                monstersOne[0].movement(event);
-                event.setLocation(event.getX() - 180, event.getY()); //EVENT VALUE CHANGE
-                monstersOne[1].movement(event);
-                //ATTENTION DO NOT PUT ANYTHING BELLOW THE EVENT IS GETTING MANIPULATED AND IT IS NOT ITS TRUE VALUE BELOW
+                    //Logic for the monster main and the shadow monster
+                    monstersOne[0].movement(event);
+                    event.setLocation(event.getX() - 180, event.getY()); //EVENT VALUE CHANGE
+                    monstersOne[1].movement(event);
+                    //ATTENTION DO NOT PUT ANYTHING BELLOW THE EVENT IS GETTING MANIPULATED AND IT IS NOT ITS TRUE VALUE BELOW
 
-            case MotionEvent.ACTION_UP:
-                //Closing down the button when the the finger is lifted from the screen.
-                buttonPlaceItemPressed = false;
-                return true;
+                case MotionEvent.ACTION_UP:
+                    //Closing down the button when the the finger is lifted from the screen.
+                    buttonPlaceItemPressed = false;
+                    return true;
+            }
         }
         return super.onTouchEvent(event);
     }

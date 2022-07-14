@@ -15,8 +15,10 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.example.urop_app.R;
+import com.example.urop_app.gameObjects.Banner;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.gameObjects.Sound;
 import com.example.urop_app.levels.levelOne.volume.VolumeOne;
 import com.example.urop_app.levels.levelOne.volume.VolumeTwo;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
@@ -31,14 +33,19 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
 
     private Context mContext;
 
+    //Banner and voiceover
+    private Sound sound;
+    private Banner banner;
+    boolean soundBoolean = true;
+
     private int spriteRectSize = 50;
 
     //Monster place block
     private Point placeBlockPoint;
-    private Block [] placeBlock = new Block[4];
+    private Block[] placeBlock = new Block[4];
 
     //BLock place intersect true
-    private boolean [] intersectMonsterPlace = new boolean[4];
+    private boolean[] intersectMonsterPlace = new boolean[4];
 
     //Touch detection rectangle
     private Point touchFollowPoint;
@@ -95,13 +102,13 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
         buttonPlaceItemPaint = new Paint();
 
         //Creating the first block object to avoid to have any index issues
-        monsterPointOne = new Point(600, 600);
+        monsterPointOne = new Point(560, 500);
         monstersOne.add(new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointOne, getContext(), 8, 1));
 
         //Monster place blocks
-        placeBlockPoint = new Point(1800,1350);
-        for(int i=0;i<4;i++){
-            placeBlock[i] = new Block(new Rect(0, 0, 100, 100), Color.argb(70,255, 255, 255), placeBlockPoint);
+        placeBlockPoint = new Point(1800, 1350);
+        for (int i = 0; i < 4; i++) {
+            placeBlock[i] = new Block(new Rect(0, 0, 100, 100), Color.argb(70, 255, 255, 255), placeBlockPoint);
             placeBlockPoint.set(placeBlockPoint.x, placeBlockPoint.y - 110);
         }
 
@@ -122,7 +129,6 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
         monstersTwo[5] = new Characters(new Rect(0, 0, spriteRectSize, spriteRectSize), monsterPointTwo[5], getContext(), 2, 1);
 
 
-
         setFocusable(true);
     }
 
@@ -132,45 +138,45 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
     private void monsterAutoMove() {
 
 
-        if(monstersTwo[0].getxPos()<=1300){
-            monstersTwo[0].update(monstersTwo[0].getSpeed(),0);
-            monstersTwo[1].update(monstersTwo[1].getSpeed(),0);
-            monstersTwo[2].update(monstersTwo[2].getSpeed(),0);
+        if (monstersTwo[0].getxPos() <= 1300) {
+            monstersTwo[0].update(monstersTwo[0].getSpeed(), 0);
+            monstersTwo[1].update(monstersTwo[1].getSpeed(), 0);
+            monstersTwo[2].update(monstersTwo[2].getSpeed(), 0);
         }
 
-        if(monstersTwo[3].getxPos()<=800){
-            monstersTwo[3].update(monstersTwo[3].getSpeed(),0);
-            monstersTwo[4].update(monstersTwo[4].getSpeed(),0);
+        if (monstersTwo[3].getxPos() <= 800) {
+            monstersTwo[3].update(monstersTwo[3].getSpeed(), 0);
+            monstersTwo[4].update(monstersTwo[4].getSpeed(), 0);
         }
 
-        if(monstersTwo[5].getxPos()<=400){
-            monstersTwo[5].update(monstersTwo[5].getSpeed(),0);
+        if (monstersTwo[5].getxPos() <= 400) {
+            monstersTwo[5].update(monstersTwo[5].getSpeed(), 0);
         }
 
     }
 
     //Method to check if the monsters are placed in the rectangles
-    private void monsterPlaceCheck(){
+    private void monsterPlaceCheck() {
 
-        for (Characters characters : monstersOne){
+        for (Characters characters : monstersOne) {
 
-            if(Rect.intersects(characters.getRectangle(),placeBlock[0].getRectangle())){
-                intersectMonsterPlace[0] =true;
+            if (Rect.intersects(characters.getRectangle(), placeBlock[0].getRectangle())) {
+                intersectMonsterPlace[0] = true;
             }
-            if(Rect.intersects(characters.getRectangle(),placeBlock[1].getRectangle())){
-                intersectMonsterPlace[1] =true;
+            if (Rect.intersects(characters.getRectangle(), placeBlock[1].getRectangle())) {
+                intersectMonsterPlace[1] = true;
             }
-            if(Rect.intersects(characters.getRectangle(),placeBlock[2].getRectangle())){
-                intersectMonsterPlace[2] =true;
+            if (Rect.intersects(characters.getRectangle(), placeBlock[2].getRectangle())) {
+                intersectMonsterPlace[2] = true;
             }
-            if(Rect.intersects(characters.getRectangle(),placeBlock[3].getRectangle())){
-                intersectMonsterPlace[3] =true;
+            if (Rect.intersects(characters.getRectangle(), placeBlock[3].getRectangle())) {
+                intersectMonsterPlace[3] = true;
             }
 
         }
 
 
-        if((intersectMonsterPlace[0]==true)&&(intersectMonsterPlace[1]==true)&&(intersectMonsterPlace[2]==true)&&(intersectMonsterPlace[3]==true)){
+        if ((intersectMonsterPlace[0] == true) && (intersectMonsterPlace[1] == true) && (intersectMonsterPlace[2] == true) && (intersectMonsterPlace[3] == true)) {
             Intent intent = new Intent(mContext, VolumeOne.class);
             mContext.startActivity(intent);
         }
@@ -200,16 +206,24 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
             monster.draw(canvas);
         }
 
-
-
-
-
-
         //Printing the place button rectangle on the screen
         buttonPlaceItemPaint.setColor(Color.rgb(175, 201, 220));
         canvas.drawRect(buttonPlaceItem, buttonPlaceItemPaint);
         canvas.drawText("Place", 2350, 1215, textStyle);
 
+        //loading up the sound and the banner
+        if (soundBoolean) {
+            soundBoolean = false;
+
+            sound = new Sound(getContext(), 2);
+            banner = new Banner(getContext(), 2);
+
+        }
+
+        //drawing the banner until the voiceover is on
+        if (sound.getSoundLoad().isPlaying()) {
+            banner.draw(canvas);
+        }
 
     }
 
@@ -227,7 +241,6 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
         }
 
 
-
         //
         monsterAutoMove();
 
@@ -238,32 +251,34 @@ public class IncreaseGameView extends SurfaceView implements SurfaceHolder.Callb
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-
-        // Handle user input touch event actions
-        switch (event.getActionMasked()) {
-            case MotionEvent.ACTION_DOWN:
-                //1) I am checking if the touchFollow is intersection with the buttonPad.Then assigning the trigger to the boolean...LINE 59
-                //Button place trigger
-                if (Rect.intersects(touchFollow, buttonPlaceItem)) {
-                    buttonPlaceItemPressed = true;
-                    if (buttonPlaceItemPressed == true) {
-                        buttonPlaceItemClickCount++;
+        //Only letting the user play once the voice over is done
+        if (!sound.getSoundLoad().isPlaying()) {
+            // Handle user input touch event actions
+            switch (event.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN:
+                    //1) I am checking if the touchFollow is intersection with the buttonPad.Then assigning the trigger to the boolean...LINE 59
+                    //Button place trigger
+                    if (Rect.intersects(touchFollow, buttonPlaceItem)) {
+                        buttonPlaceItemPressed = true;
+                        if (buttonPlaceItemPressed == true) {
+                            buttonPlaceItemClickCount++;
+                        }
                     }
-                }
-            case MotionEvent.ACTION_MOVE:
-                //Updating the position of the touchFollow rectangle. It is going to have the exact pos where is pressed.
-                touchFollow.set((int) event.getX() - touchFollow.width() / 2, (int) event.getY() - touchFollow.height() / 2, (int) event.getX() + touchFollow.width() / 2, (int) event.getY() + touchFollow.height() / 2);
+                case MotionEvent.ACTION_MOVE:
+                    //Updating the position of the touchFollow rectangle. It is going to have the exact pos where is pressed.
+                    touchFollow.set((int) event.getX() - touchFollow.width() / 2, (int) event.getY() - touchFollow.height() / 2, (int) event.getX() + touchFollow.width() / 2, (int) event.getY() + touchFollow.height() / 2);
 
-                //Only calling the block movement method of the most recent element
-                //The condition is there to stop the block to move when the user is pressing the button
-                if (!(Rect.intersects(touchFollow, buttonPlaceItem))) {
-                    monstersOne.get(monstersOne.size() - 1).movement(event);
-                }
-            case MotionEvent.ACTION_UP:
-                //Closing down the button when the the finger is lifted from the screen.
-                buttonPlaceItemPressed = false;
+                    //Only calling the block movement method of the most recent element
+                    //The condition is there to stop the block to move when the user is pressing the button
+                    if (!(Rect.intersects(touchFollow, buttonPlaceItem))) {
+                        monstersOne.get(monstersOne.size() - 1).movement(event);
+                    }
+                case MotionEvent.ACTION_UP:
+                    //Closing down the button when the the finger is lifted from the screen.
+                    buttonPlaceItemPressed = false;
 
-                return true;
+                    return true;
+            }
         }
         return super.onTouchEvent(event);
     }

@@ -14,8 +14,10 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.example.urop_app.R;
+import com.example.urop_app.gameObjects.Banner;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.gameObjects.Sound;
 import com.example.urop_app.levels.levelThree.perpendicular.PerpendicularOne;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsOne;
 
@@ -26,6 +28,11 @@ public class SymmetricalGameView extends SurfaceView implements SurfaceHolder.Ca
     //Setting up required classes by the this class
     private SymmetricalGameLoop symmetricalGameLoop;
     private Context mContext;
+
+    //Banner and voiceover
+    private Sound sound;
+    private Banner banner;
+    boolean soundBoolean = true;
 
     //Setting up the background
     private Bitmap mainBackground;
@@ -160,15 +167,22 @@ public class SymmetricalGameView extends SurfaceView implements SurfaceHolder.Ca
                 //System.out.println(e);
             }
 
-
-
-
-
-
-
         //Monster
         monsterOne.draw(canvas);
 
+        //loading up the sound and the banner
+        if (soundBoolean) {
+            soundBoolean = false;
+
+            sound = new Sound(getContext(), 2);
+            banner = new Banner(getContext(), 2);
+
+        }
+
+        //drawing the banner until the voiceover is on
+        if (sound.getSoundLoad().isPlaying()) {
+            banner.draw(canvas);
+        }
     }
 
     public void update() {
@@ -179,21 +193,24 @@ public class SymmetricalGameView extends SurfaceView implements SurfaceHolder.Ca
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        // Handle user input touch event actions
-        switch (event.getActionMasked()) {
-            case MotionEvent.ACTION_DOWN:
-            case MotionEvent.ACTION_MOVE:
-                //Checking if the monsters has crossed the paths
-                //Checking if the boxes are overlapping
-                //Setting a limit on user draw box
-                pointDraw.set((int) event.getX(), (int) event.getY());
-                blocksDraw.add(new Block(new Rect(0, 0, 50, 50), Color.rgb(255, 255, 255), pointDraw));
+        //Only letting the user play once the voice over is done
+        if (!sound.getSoundLoad().isPlaying()) {
+            // Handle user input touch event actions
+            switch (event.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN:
+                case MotionEvent.ACTION_MOVE:
+                    //Checking if the monsters has crossed the paths
+                    //Checking if the boxes are overlapping
+                    //Setting a limit on user draw box
+                    pointDraw.set((int) event.getX(), (int) event.getY());
+                    blocksDraw.add(new Block(new Rect(0, 0, 50, 50), Color.rgb(255, 255, 255), pointDraw));
 
-                pointMonsterOne.set((int) event.getX(), (int) event.getY());
-                monsterOne.setxPos(pointMonsterOne.x);
-                monsterOne.setyPos(pointMonsterOne.y);
+                    pointMonsterOne.set((int) event.getX(), (int) event.getY());
+                    monsterOne.setxPos(pointMonsterOne.x);
+                    monsterOne.setyPos(pointMonsterOne.y);
 
-                return true;
+                    return true;
+            }
         }
         return super.onTouchEvent(event);
     }

@@ -14,8 +14,10 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.example.urop_app.R;
+import com.example.urop_app.gameObjects.Banner;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.gameObjects.Sound;
 import com.example.urop_app.levels.levelOne.ratio.RatioOne;
 import com.example.urop_app.levels.levelOne.ratio.RatioTwo;
 import com.example.urop_app.levels.levelTwo.intersects.IntersectsTwo;
@@ -28,6 +30,11 @@ public class VolumeGameView extends SurfaceView implements SurfaceHolder.Callbac
     //Setting up required classes by the this class
     private VolumeGameLoop volumeGameLoop;
     private Context mContext;
+
+    //Banner and voiceover
+    private Sound sound;
+    private Banner banner;
+    boolean soundBoolean = true;
 
     //Setting up the background
     private Bitmap mainBackground;
@@ -179,13 +186,26 @@ public class VolumeGameView extends SurfaceView implements SurfaceHolder.Callbac
         waterOneBlock.draw(canvas);
 
 
-
         //Barrel
         canvas.drawBitmap(barrel, 300, 1200, null);
 
         cupTwoBlock.draw(canvas);
         waterTwoBlock.draw(canvas);
         waterThreeBlock.draw(canvas);
+
+        //loading up the sound and the banner
+        if (soundBoolean) {
+            soundBoolean = false;
+
+            sound = new Sound(getContext(), 2);
+            banner = new Banner(getContext(), 2);
+
+        }
+
+        //drawing the banner until the voiceover is on
+        if (sound.getSoundLoad().isPlaying()) {
+            banner.draw(canvas);
+        }
 
     }
 
@@ -199,14 +219,17 @@ public class VolumeGameView extends SurfaceView implements SurfaceHolder.Callbac
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        // Handle user input touch event actions
-        switch (event.getActionMasked()) {
-            case MotionEvent.ACTION_DOWN:
-            case MotionEvent.ACTION_MOVE:
+        //Only letting the user play once the voice over is done
+        if (!sound.getSoundLoad().isPlaying()) {
+            // Handle user input touch event actions
+            switch (event.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN:
+                case MotionEvent.ACTION_MOVE:
 
-                monstersOne.get(monstersOne.size() - 1).movement(event);
+                    monstersOne.get(monstersOne.size() - 1).movement(event);
 
-                return true;
+                    return true;
+            }
         }
         return super.onTouchEvent(event);
     }

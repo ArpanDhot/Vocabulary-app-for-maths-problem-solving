@@ -15,8 +15,10 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.example.urop_app.R;
+import com.example.urop_app.gameObjects.Banner;
 import com.example.urop_app.gameObjects.Block;
 import com.example.urop_app.gameObjects.Characters;
+import com.example.urop_app.gameObjects.Sound;
 import com.example.urop_app.levels.levelOne.increase.IncreaseGameLoop;
 import com.example.urop_app.levels.levelTwo.SubMenuTwo;
 import com.example.urop_app.levels.levelTwo.estimate.EstimateTwo;
@@ -31,6 +33,11 @@ public class SequenceGameView extends SurfaceView implements SurfaceHolder.Callb
     private Bitmap mainBackground;
 
     private Context mContext;
+
+    //Banner and voiceover
+    private Sound sound;
+    private Banner banner;
+    boolean soundBoolean = true;
 
     private int spriteRectSize = 50;
 
@@ -171,6 +178,19 @@ public class SequenceGameView extends SurfaceView implements SurfaceHolder.Callb
         }
 
 
+        //loading up the sound and the banner
+        if (soundBoolean) {
+            soundBoolean = false;
+
+            sound = new Sound(getContext(), 2);
+            banner = new Banner(getContext(), 2);
+
+        }
+
+        //drawing the banner until the voiceover is on
+        if (sound.getSoundLoad().isPlaying()) {
+            banner.draw(canvas);
+        }
     }
 
     public void update() {
@@ -187,16 +207,19 @@ public class SequenceGameView extends SurfaceView implements SurfaceHolder.Callb
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        // Handle user input touch event actions
-        switch (event.getActionMasked()) {
-            case MotionEvent.ACTION_DOWN:
+        //Only letting the user play once the voice over is done
+        if (!sound.getSoundLoad().isPlaying()) {
+            // Handle user input touch event actions
+            switch (event.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN:
 
-            case MotionEvent.ACTION_MOVE:
+                case MotionEvent.ACTION_MOVE:
 
-                monstersOne.get(monstersOne.size() - 1).movement(event);
+                    monstersOne.get(monstersOne.size() - 1).movement(event);
 
 
-                return true;
+                    return true;
+            }
         }
         return super.onTouchEvent(event);
     }
