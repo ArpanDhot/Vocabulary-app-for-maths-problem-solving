@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROP-APP/app/src/main/res/layout/activity_main.xml" value="0.17980072463768115" />
+        <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROP-APP/app/src/main/res/layout/activity_menu.xml" value="0.17980072463768115" />
+        <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROP-APP/app/src/main/res/layout/activity_settings.xml" value="0.17980072463768115" />
         <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROPAPP/app/src/main/res/layout/activity_axis_one.xml" value="0.36302083333333335" />
         <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROPAPP/app/src/main/res/layout/activity_estimate_one.xml" value="0.34601449275362317" />
         <entry key="..\:/Users/sarpa/AndroidStudioProjects/UROPAPP/app/src/main/res/layout/activity_help.xml" value="0.36302083333333335" />

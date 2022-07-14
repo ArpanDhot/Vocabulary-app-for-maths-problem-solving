@@ -59,11 +59,9 @@ public class MainActivity extends AppCompatActivity {
         //Setting up the activity
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(getApplicationContext(), IncreaseOne.class);
-        startActivity(intent);
 
-//        progressBar = findViewById(R.id.gameLoadingBar);
-//        progressBarEngine();
+        progressBar = findViewById(R.id.gameLoadingBar);
+        progressBarEngine();
 
     }
 
