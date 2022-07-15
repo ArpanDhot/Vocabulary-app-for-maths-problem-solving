@@ -57,9 +57,9 @@ public class Sound {
         } else if (soundTrackNumber == 8) {
             soundLoad = MediaPlayer.create(context,R.raw.axistwo); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 9) {
-            soundLoad = MediaPlayer.create(context,R.raw.reflactionone); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.reflectionone); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 10 ) {
-            soundLoad = MediaPlayer.create(context,R.raw.reflactiontwo); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.reflectiontwo); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 11) {
             soundLoad = MediaPlayer.create(context,R.raw.intersectsone); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 12) {
@@ -73,21 +73,21 @@ public class Sound {
         } else if (soundTrackNumber == 16) {
             soundLoad = MediaPlayer.create(context,R.raw.estimatetwo); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 17) {
-            soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.translateone); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 18) {
-            soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.translatetwo); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 19) {
-            soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.perimeterone); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 20) {
-            soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.perimetertwo); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 21) {
-            soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.symmetricalone); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 22) {
-            soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.symmetricaltwo); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 23) {
-            soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.perpendicularone); //assigning the track to the MediaPlayer
         } else if (soundTrackNumber == 24) {
-            soundLoad = MediaPlayer.create(context,R.raw.increasetwo); //assigning the track to the MediaPlayer
+            soundLoad = MediaPlayer.create(context,R.raw.perpendiculartwo); //assigning the track to the MediaPlayer
         }
 
     }
