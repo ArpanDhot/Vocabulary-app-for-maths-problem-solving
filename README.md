@@ -8,6 +8,13 @@ The application employs concepts of Object Oriented Programming to create bluepr
 This application is designed to teach 12 different mathematical terms using problem-solving. Each level has a unique task, appearance and character.
 
 ### Features
+- User-placeable objects
+- User-traceable objects
+- User-movable objects
+- Button to play sound
+- Sound control settings
+- Automatically save sound settings
+
 
 ## Application Demo
 ![gif demo](/Demo/cc3044ee9322070418fc5729-0001.gif)
