@@ -6,3 +6,6 @@ The application has three levels, and each level has four interactive games. Eac
 The application employs concepts of Object Oriented Programming to create blueprints for several objects in the game. 
 
 This application is designed to teach 12 different mathematical terms using problem-solving. Each level has a unique task, appearance and character.
+
+![gif demo](/Demo/cc3044ee9322070418fc5729-0001.gif)
+![about](/Demo/e00dbff6cc3044ee9322070418fc5729-0001.jpg)
