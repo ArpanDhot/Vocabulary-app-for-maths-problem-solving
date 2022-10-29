@@ -1,5 +1,5 @@
 ## Vocabulary app for maths problem-solving for Year 5 pupils.
-The maths learning application is a UROP placement project, all of which I designed and programmed. I have used Java/Android to develop the application and CSS for user interface styling . 
+The maths learning application is a UROP placement project, all of which I designed and programmed. I have used Java/Android to develop the application and CSS for styling the user interface. 
 
 The application has three levels, and each level has four interactive games. Each interactive game is composed of 4 classes, and in total, the project has 64 Classes. Therefore, it was a learning curve to manage all the Classes effectively. 
 
